@@ -14,10 +14,12 @@ namespace _19030690_Abhinav_Parajuli
        
         public int age { get; set; }
 
-        public int time_duration {get; set;}
+        public string time_duration {get; set;}
 
         public DateTime Date { get; set; }
 
         public string category { get; set; }
+
+        public int price { get; set; }
     }
 }

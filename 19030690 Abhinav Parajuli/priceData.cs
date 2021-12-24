@@ -20,6 +20,8 @@ namespace _19030690_Abhinav_Parajuli
         public int rate3 { get; set; }
         [Integer]
         public int rate4 { get; set; }
+        [Integer]
+        public int wholeDay { get; set; }
 
     }
 }

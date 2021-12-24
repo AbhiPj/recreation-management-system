@@ -20,6 +20,7 @@ namespace _19030690_Abhinav_Parajuli
     {
 
         List<priceData> priceDatas;
+        string file = @"C:\Users\Abhinav\price.csv";
         public PriceRate()
         {
             InitializeComponent();
@@ -53,26 +54,38 @@ namespace _19030690_Abhinav_Parajuli
                 PD.rate2 = int.Parse(txtRate2.Text);
                 PD.rate3 = int.Parse(txtRate3.Text);
                 PD.rate4 = int.Parse(txtRate4.Text);
+                PD.wholeDay = int.Parse(txtWholeDay.Text);
 
-                priceDatas.Add(PD);
-                WriteCsv(file, priceDatas);
-                var parice = priceDatas.Select(x => x.category);
+                var category = priceDatas.Select(x => x.category);
+                if (category.Contains(PD.category))
+                {
+                    MessageBox.Show("already exists");
+                }
+                else
+                {
+                    priceDatas.Add(PD);
+                    WriteCsv(file, priceDatas);
+                    var parice = priceDatas.Select(x => x.category);
+                }
             }
-
             catch
             {
                 MessageBox.Show("Please insert all data");
             }
-
         }
        
-
-
         private void button2_Click(object sender, EventArgs e)
         {
             var path = @"C:\Users\Abhinav\price.csv";
-            priceDatas = ReadCsv(path);
-            dataGridView1.DataSource = priceDatas;
+            if (File.Exists(path))
+            {
+                priceDatas = ReadCsv(path);
+                dataGridView1.DataSource = priceDatas;
+            }
+            else
+            {
+                MessageBox.Show("File does not exist");
+            }
         }
         public void WriteCsv(string path, List<priceData> list)
         {
@@ -106,7 +119,48 @@ namespace _19030690_Abhinav_Parajuli
             {
                 throw new Exception(e.Message);
             }
+        }
+        public int GetPrice(string category, string duration)
+        {
+            priceDatas = ReadCsv(file);
+            int price = 0;
+            var RateCategory = priceDatas.Select(x => x.category);
+            foreach(var rate in priceDatas)
+            {
+                if (rate.category==category)
+                {
+                    if (duration == "1Hr")
+                    {
+                         price = rate.rate1;
+                        MessageBox.Show("1 Hour");
+
+                    }
+                    else if(duration == "2Hrs")
+                    {
+                        MessageBox.Show("2 Hours");
+                        price = rate.rate2;
+                    }
+                    else if(duration == "3Hrs")
+                    {
+                        MessageBox.Show("3 Hours");
+                        price = rate.rate3;
+
+                    }
+                    else if(duration == "4Hrs")
+                    {
+                        MessageBox.Show("4 Hours");
+                        price = rate.rate4;
+                    }
+                    else
+                    {
+                        MessageBox.Show("all day");
+                        price = rate.wholeDay;
+                    }
+                }
+            }
+            return price;
+        }
 
         }
     }
-}
+

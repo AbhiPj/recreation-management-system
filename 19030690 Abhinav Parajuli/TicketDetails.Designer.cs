@@ -36,8 +36,8 @@ namespace _19030690_Abhinav_Parajuli
             this.cmbTicketCategory = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtTimeDuration = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.cmbDuration = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -104,13 +104,6 @@ namespace _19030690_Abhinav_Parajuli
             this.label5.TabIndex = 8;
             this.label5.Text = "Time duration";
             // 
-            // txtTimeDuration
-            // 
-            this.txtTimeDuration.Location = new System.Drawing.Point(574, 149);
-            this.txtTimeDuration.Name = "txtTimeDuration";
-            this.txtTimeDuration.Size = new System.Drawing.Size(121, 22);
-            this.txtTimeDuration.TabIndex = 9;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(343, 275);
@@ -121,12 +114,26 @@ namespace _19030690_Abhinav_Parajuli
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cmbDuration
+            // 
+            this.cmbDuration.FormattingEnabled = true;
+            this.cmbDuration.Items.AddRange(new object[] {
+            "1Hr",
+            "2Hrs",
+            "3Hrs",
+            "4Hrs",
+            "Whole Day"});
+            this.cmbDuration.Location = new System.Drawing.Point(574, 149);
+            this.cmbDuration.Name = "cmbDuration";
+            this.cmbDuration.Size = new System.Drawing.Size(121, 24);
+            this.cmbDuration.TabIndex = 11;
+            // 
             // TicketDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cmbDuration);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.txtTimeDuration);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbTicketCategory);
@@ -150,7 +157,7 @@ namespace _19030690_Abhinav_Parajuli
         private System.Windows.Forms.ComboBox cmbTicketCategory;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtTimeDuration;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cmbDuration;
     }
 }

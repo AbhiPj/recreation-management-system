@@ -27,14 +27,8 @@ namespace _19030690_Abhinav_Parajuli
         private void btnDailyReport_Click(object sender, EventArgs e)
         {
             TicketDetails TD = new TicketDetails();
-          
             List<TicketData> dailyReport;
-
-
-
             dailyReport = TD.getDailyReport();
-
-
             var groupList = dailyReport.GroupBy(a => a.category);
 
             foreach (var group in groupList)

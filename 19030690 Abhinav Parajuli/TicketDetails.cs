@@ -40,10 +40,18 @@ namespace _19030690_Abhinav_Parajuli
             TK.name = txtName.Text;
             TK.age = int.Parse(txtAge.Text);
             TK.Date = date;
-            TK.time_duration = int.Parse(txtTimeDuration.Text);
+            TK.time_duration = cmbDuration.Text;
+     
+
+            PriceRate PD = new PriceRate();
+            int price = PD.GetPrice(TK.category, TK.time_duration);
+            TK.price = price;
 
             ticketDatas.Add(TK);
             WriteCsv(file, ticketDatas);
+
+
+        
         }
         public void WriteCsv(string path, List<TicketData> list)
         {
