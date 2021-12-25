@@ -17,6 +17,7 @@ namespace _19030690_Abhinav_Parajuli
     {
         List<TicketData> ticketDatas;
         string file = @"C:\Users\Abhinav\TicketDetails.csv";
+        string priceCsv = @"C:\Users\Abhinav\price.csv";
         public TicketDetails()
         {
             InitializeComponent();
@@ -28,39 +29,53 @@ namespace _19030690_Abhinav_Parajuli
         {
             try
             {
-                string file = @"C:\Users\Abhinav\TicketDetails.csv";
-                DateTime date = DateTime.Now;
-
-                if (File.Exists(file))
+                if (File.Exists(priceCsv))
                 {
-                    ticketDatas = ReadCsv(file);
+                    DateTime date = DateTime.Now;
+                    int year = date.Date.Year;
+                    DateTime firstDay = new DateTime(year, 1, 1);
+                    CultureInfo cul = CultureInfo.CurrentCulture;
+                    int weekNo = cul.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstDay, DayOfWeek.Sunday);
+                    int days = (weekNo - 1) * 7;
+                    DateTime dt1 = firstDay.AddDays(days);
+                    DayOfWeek dow = dt1.DayOfWeek;
+                    DateTime startDateOfWeek = dt1.AddDays(-(int)dow);
+                    DateTime endDateOfWeek = startDateOfWeek.AddDays(6);
+                    string start = startDateOfWeek.ToShortDateString();
+                    string end = endDateOfWeek.ToShortDateString();
+                    string curDate = date.ToShortDateString();
+                    Console.WriteLine("Start Of Week: " + startDateOfWeek.ToShortDateString());
+                    Console.WriteLine("End of week:" + endDateOfWeek.ToShortDateString());
+
+
+                    if (File.Exists(file))
+                    {
+                        ticketDatas = ReadCsv(file);
+                    }
+                    TicketData TK = new TicketData();
+                    TK.category = cmbTicketCategory.Text;
+                    TK.name = txtName.Text;
+                    TK.age = int.Parse(txtAge.Text);
+                    TK.Date = curDate;
+                    TK.time_duration = cmbDuration.Text;
+
+
+                    PriceRate PD = new PriceRate();
+                    int price = PD.GetPrice(TK.category, TK.time_duration);
+                    TK.price = price;
+
+                    ticketDatas.Add(TK);
+                    WriteCsv(file, ticketDatas);
                 }
-                TicketData TK = new TicketData();
-                TK.category = cmbTicketCategory.Text;
-                TK.name = txtName.Text;
-                TK.age = int.Parse(txtAge.Text);
-                TK.Date = date;
-                TK.time_duration = cmbDuration.Text;
-
-
-                PriceRate PD = new PriceRate();
-                int price = PD.GetPrice(TK.category, TK.time_duration);
-                TK.price = price;
-
-                ticketDatas.Add(TK);
-                WriteCsv(file, ticketDatas);
+                else
+                {
+                    MessageBox.Show("Price file does not exist");
+                }
             }
-            catch(Exception ex)
+            catch(Exception exc)
             {
-                MessageBox.Show("Error");
+                MessageBox.Show("Error" + exc);
             }
-        
-           
-
-     
-
-
-        
         }
         public void WriteCsv(string path, List<TicketData> list)
         {

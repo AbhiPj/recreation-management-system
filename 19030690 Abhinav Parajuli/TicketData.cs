@@ -16,7 +16,7 @@ namespace _19030690_Abhinav_Parajuli
 
         public string time_duration {get; set;}
 
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
 
         public string category { get; set; }
 

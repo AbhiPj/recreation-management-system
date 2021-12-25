@@ -8,7 +8,7 @@ namespace _19030690_Abhinav_Parajuli
 {
     public class WeeklyReport
     {
-        public DateTime date { get; set; }
+        public string date { get; set; }
         public int totalVisitor { get; set; }
 
         public int totalEarning{get; set;}

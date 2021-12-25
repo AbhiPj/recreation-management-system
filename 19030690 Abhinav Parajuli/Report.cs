@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace _19030690_Abhinav_Parajuli
     {
         List<DailyReport> newList;
         List<WeeklyReport> weeklyReports;
+        string file = @"C:\Users\Abhinav\TicketDetails.csv";
         public Report()
         {
             InitializeComponent();
@@ -28,49 +30,75 @@ namespace _19030690_Abhinav_Parajuli
 
         private void btnDailyReport_Click(object sender, EventArgs e)
         {
-            TicketDetails TD = new TicketDetails();
-            List<TicketData> dailyReport;
-            dailyReport = TD.getTicketData();
-            var groupList = dailyReport.GroupBy(a => a.category);
-
-            foreach (var group in groupList)
+            try
             {
-                DailyReport DR = new DailyReport();
-                DR.category = group.Key;
-                DR.dailyCustomers = group.Count();
-                newList.Add(DR);
+                
+                if (File.Exists(file))
+                {
+                    TicketDetails TD = new TicketDetails();
+                    List<TicketData> dailyReport;
+                    dailyReport = TD.getTicketData();
+                    var groupList = dailyReport.GroupBy(a => a.category);
+
+                    foreach (var group in groupList)
+                    {
+                        DailyReport DR = new DailyReport();
+                        DR.category = group.Key;
+                        DR.dailyCustomers = group.Count();
+                        newList.Add(DR);
+                    }
+                    dailyReportGrid.DataSource = newList;
+                }
+                else
+                {
+                    MessageBox.Show("File does not exist");
+                }
             }
-          
-            dailyReportGrid.DataSource = newList;
+            catch(Exception exc)
+            {
+                MessageBox.Show("Error" + exc.Message);
+            }
         }
 
         private void btnWeeklyReport_Click(object sender, EventArgs e)
         {
-            TicketDetails TD = new TicketDetails();
-            List<TicketData> ticketDatas;
-            ticketDatas = TD.getTicketData();
-
-            var groupList = ticketDatas.GroupBy(a => a.Date).Select((
-                s => new
-                {
-                    Key = s.Key,
-                    Value = s.Sum(a => a.price),
-                    visitor = s.Count()
-
-                })); ;
-             
-            
-
-            foreach (var group in groupList)
+            try
             {
-                WeeklyReport WR = new WeeklyReport();
-                WR.date = group.Key;
-                WR.totalVisitor = group.visitor;
-                WR.totalEarning = group.Value;
-                weeklyReports.Add(WR);
-               
+                if (File.Exists(file))
+                {
+                    TicketDetails TD = new TicketDetails();
+                    List<TicketData> ticketDatas;
+                    ticketDatas = TD.getTicketData();
+
+                    var groupList = ticketDatas.GroupBy(a => a.Date).Select((
+                        s => new
+                        {
+                            Key = s.Key,
+                            Value = s.Sum(a => a.price),
+                            visitor = s.Count()
+
+                        }));
+                    foreach (var group in groupList)
+                    {
+                        WeeklyReport WR = new WeeklyReport();
+                        WR.date = group.Key;
+                        WR.totalVisitor = group.visitor;
+                        WR.totalEarning = group.Value;
+                        weeklyReports.Add(WR);
+
+                    }
+                    weeklyReportGrid.DataSource = weeklyReports;
+                }
+                else
+                {
+                    MessageBox.Show("File does not exist");
+                }
             }
-            weeklyReportGrid.DataSource = weeklyReports;
+            catch(Exception exc)
+            {
+                MessageBox.Show("Error" + exc.Message);
+            }
+       
         }
     }
 }
