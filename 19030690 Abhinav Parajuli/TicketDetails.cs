@@ -77,6 +77,7 @@ namespace _19030690_Abhinav_Parajuli
                 }
                 else
                 {
+                    MessageBox.Show("File does not exist");
                     return null;
                 }
             }
@@ -91,6 +92,12 @@ namespace _19030690_Abhinav_Parajuli
             ticketDatas= ReadCsv(file);
             return ticketDatas;
 
+        }
+
+        private void btnRead_Click(object sender, EventArgs e)
+        {
+            ticketDatas = ReadCsv(file);
+            dataGridView1.DataSource = ticketDatas;
         }
     }
 }
