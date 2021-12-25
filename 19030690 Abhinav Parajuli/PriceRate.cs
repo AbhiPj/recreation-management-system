@@ -66,6 +66,15 @@ namespace _19030690_Abhinav_Parajuli
                     priceDatas.Add(PD);
                     WriteCsv(file, priceDatas);
                     var parice = priceDatas.Select(x => x.category);
+                    dataGridView1.DataSource = priceDatas;
+                    MessageBox.Show("Price added");
+                    txtRate1.Clear();
+                    txtRate2.Clear();
+                    txtRate3.Clear();
+                    txtRate4.Clear();
+                    txtWholeDay.Clear();
+
+
                 }
             }
             catch
@@ -81,6 +90,7 @@ namespace _19030690_Abhinav_Parajuli
             {
                 priceDatas = ReadCsv(path);
                 dataGridView1.DataSource = priceDatas;
+               
             }
             else
             {
@@ -161,6 +171,17 @@ namespace _19030690_Abhinav_Parajuli
             return price;
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show("error");
+            }
         }
+    }
     }
 

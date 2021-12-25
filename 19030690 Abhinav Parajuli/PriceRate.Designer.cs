@@ -44,23 +44,26 @@ namespace _19030690_Abhinav_Parajuli
             this.txtRate4 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtWholeDay = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(410, 47);
+            this.dataGridView1.Location = new System.Drawing.Point(275, 69);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(537, 362);
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(641, 362);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // lblTicketCategory
             // 
             this.lblTicketCategory.AutoSize = true;
-            this.lblTicketCategory.Location = new System.Drawing.Point(83, 71);
+            this.lblTicketCategory.Location = new System.Drawing.Point(17, 90);
             this.lblTicketCategory.Name = "lblTicketCategory";
             this.lblTicketCategory.Size = new System.Drawing.Size(65, 17);
             this.lblTicketCategory.TabIndex = 1;
@@ -69,7 +72,7 @@ namespace _19030690_Abhinav_Parajuli
             // lblAge
             // 
             this.lblAge.AutoSize = true;
-            this.lblAge.Location = new System.Drawing.Point(83, 128);
+            this.lblAge.Location = new System.Drawing.Point(17, 150);
             this.lblAge.Name = "lblAge";
             this.lblAge.Size = new System.Drawing.Size(90, 17);
             this.lblAge.TabIndex = 2;
@@ -78,7 +81,7 @@ namespace _19030690_Abhinav_Parajuli
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(83, 191);
+            this.lblPrice.Location = new System.Drawing.Point(17, 213);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(93, 17);
             this.lblPrice.TabIndex = 3;
@@ -86,21 +89,21 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // txtRate1
             // 
-            this.txtRate1.Location = new System.Drawing.Point(210, 128);
+            this.txtRate1.Location = new System.Drawing.Point(135, 150);
             this.txtRate1.Name = "txtRate1";
             this.txtRate1.Size = new System.Drawing.Size(109, 22);
             this.txtRate1.TabIndex = 7;
             // 
             // txtRate2
             // 
-            this.txtRate2.Location = new System.Drawing.Point(210, 186);
+            this.txtRate2.Location = new System.Drawing.Point(135, 208);
             this.txtRate2.Name = "txtRate2";
             this.txtRate2.Size = new System.Drawing.Size(109, 22);
             this.txtRate2.TabIndex = 8;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(162, 386);
+            this.btnSubmit.Location = new System.Drawing.Point(169, 408);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 11;
@@ -110,7 +113,7 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // btnRead
             // 
-            this.btnRead.Location = new System.Drawing.Point(285, 386);
+            this.btnRead.Location = new System.Drawing.Point(76, 408);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(75, 23);
             this.btnRead.TabIndex = 12;
@@ -121,7 +124,7 @@ namespace _19030690_Abhinav_Parajuli
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(83, 243);
+            this.label1.Location = new System.Drawing.Point(17, 260);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 17);
             this.label1.TabIndex = 13;
@@ -130,7 +133,7 @@ namespace _19030690_Abhinav_Parajuli
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(83, 290);
+            this.label2.Location = new System.Drawing.Point(17, 312);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(93, 17);
             this.label2.TabIndex = 14;
@@ -145,21 +148,21 @@ namespace _19030690_Abhinav_Parajuli
             "Group of 5",
             "Group of 10",
             "Group of 15"});
-            this.cmbCategory.Location = new System.Drawing.Point(210, 68);
+            this.cmbCategory.Location = new System.Drawing.Point(135, 90);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(109, 24);
             this.cmbCategory.TabIndex = 15;
             // 
             // txtRate3
             // 
-            this.txtRate3.Location = new System.Drawing.Point(210, 238);
+            this.txtRate3.Location = new System.Drawing.Point(135, 257);
             this.txtRate3.Name = "txtRate3";
             this.txtRate3.Size = new System.Drawing.Size(109, 22);
             this.txtRate3.TabIndex = 16;
             // 
             // txtRate4
             // 
-            this.txtRate4.Location = new System.Drawing.Point(210, 290);
+            this.txtRate4.Location = new System.Drawing.Point(135, 309);
             this.txtRate4.Name = "txtRate4";
             this.txtRate4.Size = new System.Drawing.Size(109, 22);
             this.txtRate4.TabIndex = 17;
@@ -167,7 +170,7 @@ namespace _19030690_Abhinav_Parajuli
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(83, 347);
+            this.label3.Location = new System.Drawing.Point(17, 369);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 17);
             this.label3.TabIndex = 18;
@@ -175,15 +178,26 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // txtWholeDay
             // 
-            this.txtWholeDay.Location = new System.Drawing.Point(210, 342);
+            this.txtWholeDay.Location = new System.Drawing.Point(135, 364);
             this.txtWholeDay.Name = "txtWholeDay";
             this.txtWholeDay.Size = new System.Drawing.Size(109, 22);
             this.txtWholeDay.TabIndex = 19;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(366, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(197, 44);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Price Rate";
             // 
             // PriceRate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.txtWholeDay);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtRate4);
@@ -200,7 +214,7 @@ namespace _19030690_Abhinav_Parajuli
             this.Controls.Add(this.lblTicketCategory);
             this.Controls.Add(this.dataGridView1);
             this.Name = "PriceRate";
-            this.Size = new System.Drawing.Size(969, 435);
+            this.Size = new System.Drawing.Size(931, 493);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -224,5 +238,6 @@ namespace _19030690_Abhinav_Parajuli
         private System.Windows.Forms.TextBox txtRate4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtWholeDay;
+        private System.Windows.Forms.Label label4;
     }
 }

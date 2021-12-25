@@ -17,7 +17,7 @@ namespace _19030690_Abhinav_Parajuli
         public Form1()
         {
             InitializeComponent();
-            priceRate1.BringToFront();
+            report1.BringToFront();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -27,12 +27,12 @@ namespace _19030690_Abhinav_Parajuli
 
         private void button2_Click(object sender, EventArgs e)
         {
-            priceRate1.BringToFront();
+            chart1.BringToFront();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-         //   admin1.BringToFront();
+            admin1.BringToFront();
         }
 
         private void button5_Click(object sender, EventArgs e)

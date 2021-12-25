@@ -26,29 +26,38 @@ namespace _19030690_Abhinav_Parajuli
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DateTime date = DateTime.Now;
+            try
+            {
+                string file = @"C:\Users\Abhinav\TicketDetails.csv";
+                DateTime date = DateTime.Now;
+
+                if (File.Exists(file))
+                {
+                    ticketDatas = ReadCsv(file);
+                }
+                TicketData TK = new TicketData();
+                TK.category = cmbTicketCategory.Text;
+                TK.name = txtName.Text;
+                TK.age = int.Parse(txtAge.Text);
+                TK.Date = date;
+                TK.time_duration = cmbDuration.Text;
+
+
+                PriceRate PD = new PriceRate();
+                int price = PD.GetPrice(TK.category, TK.time_duration);
+                TK.price = price;
+
+                ticketDatas.Add(TK);
+                WriteCsv(file, ticketDatas);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error");
+            }
+        
            
 
-            string file = @"C:\Users\Abhinav\TicketDetails.csv";
-            if (File.Exists(file))
-            {
-                ticketDatas = ReadCsv(file);
-            }
-            TicketData TK = new TicketData();
-
-            TK.category = cmbTicketCategory.Text;
-            TK.name = txtName.Text;
-            TK.age = int.Parse(txtAge.Text);
-            TK.Date = date;
-            TK.time_duration = cmbDuration.Text;
      
-
-            PriceRate PD = new PriceRate();
-            int price = PD.GetPrice(TK.category, TK.time_duration);
-            TK.price = price;
-
-            ticketDatas.Add(TK);
-            WriteCsv(file, ticketDatas);
 
 
         
@@ -87,7 +96,7 @@ namespace _19030690_Abhinav_Parajuli
             }
         }
 
-        public List<TicketData> getDailyReport()
+        public List<TicketData> getTicketData()
         {
             ticketDatas= ReadCsv(file);
             return ticketDatas;

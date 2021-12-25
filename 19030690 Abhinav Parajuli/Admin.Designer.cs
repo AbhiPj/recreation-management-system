@@ -35,6 +35,7 @@ namespace _19030690_Abhinav_Parajuli
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.priceRate1 = new _19030690_Abhinav_Parajuli.PriceRate();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -71,7 +72,7 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(186, 253);
+            this.button1.Location = new System.Drawing.Point(373, 113);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -81,15 +82,26 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // priceRate1
             // 
-            this.priceRate1.Location = new System.Drawing.Point(-50, 300);
+            this.priceRate1.Location = new System.Drawing.Point(12, 219);
             this.priceRate1.Name = "priceRate1";
-            this.priceRate1.Size = new System.Drawing.Size(938, 359);
+            this.priceRate1.Size = new System.Drawing.Size(1001, 482);
             this.priceRate1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(398, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 44);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Login";
             // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.priceRate1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtPassword);
@@ -97,7 +109,7 @@ namespace _19030690_Abhinav_Parajuli
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
             this.Name = "Admin";
-            this.Size = new System.Drawing.Size(792, 675);
+            this.Size = new System.Drawing.Size(1016, 704);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,5 +123,6 @@ namespace _19030690_Abhinav_Parajuli
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button button1;
         private PriceRate priceRate1;
+        private System.Windows.Forms.Label label1;
     }
 }

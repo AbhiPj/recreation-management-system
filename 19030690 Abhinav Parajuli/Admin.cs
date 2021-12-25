@@ -26,8 +26,13 @@ namespace _19030690_Abhinav_Parajuli
             var password = txtPassword.Text;
             if (username == "admin" && password == "admin")
             {
+                MessageBox.Show("Login successful");
                 priceRate1.Visible = true;
-            } 
+            }
+            else
+            {
+                MessageBox.Show("Invalid");
+            }
         }
     }
 }
