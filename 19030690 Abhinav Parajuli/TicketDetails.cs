@@ -16,8 +16,10 @@ namespace _19030690_Abhinav_Parajuli
     public partial class TicketDetails : UserControl
     {
         List<TicketData> ticketDatas;
+        private IEnumerable<int> userID;
         string file = @"C:\Users\Abhinav\TicketDetails.csv";
         string priceCsv = @"C:\Users\Abhinav\price.csv";
+
         public TicketDetails()
         {
             InitializeComponent();
@@ -60,11 +62,9 @@ namespace _19030690_Abhinav_Parajuli
                          dayType = "Weekdays";
                     }
 
-                    if (File.Exists(file))
-                    {
-                        ticketDatas = ReadCsv(file);
-                    }
                     TicketData TK = new TicketData();
+                    PriceRate PD = new PriceRate();
+
                     TK.id = int.Parse(txtID.Text);
                     TK.category = cmbTicketCategory.Text;
                     TK.name = txtName.Text;
@@ -74,13 +74,40 @@ namespace _19030690_Abhinav_Parajuli
                     TK.time_duration = cmbDuration.Text;
                     TK.checkoutTime = null;
 
+                    if (File.Exists(file))
+                    {
+                        ticketDatas = ReadCsv(file);
+                        userID = ticketDatas.Select(x => x.id);
+                        if (userID.Contains(TK.id))
+                        {
+                            MessageBox.Show("User with the ID already exists");
+                        }
+                        else
+                        {
+                            int price1 = PD.GetPrice(TK.category, TK.time_duration, dayType);
+                            TK.price = price1;
 
-                    PriceRate PD = new PriceRate();
-                    int price = PD.GetPrice(TK.category, TK.time_duration, dayType);
-                    TK.price = price;
+                            ticketDatas.Add(TK);
+                            WriteCsv(file, ticketDatas);
+                        }
 
-                    ticketDatas.Add(TK);
-                    WriteCsv(file, ticketDatas);
+                    }
+                    else
+                    {
+                        int price = PD.GetPrice(TK.category, TK.time_duration, dayType);
+                        TK.price = price;
+
+                        ticketDatas.Add(TK);
+                        WriteCsv(file, ticketDatas);
+
+                    }
+
+                   
+                   
+                    
+
+
+                    
                 }
                 else
                 {
@@ -152,11 +179,19 @@ namespace _19030690_Abhinav_Parajuli
             {
                 if (ticket.id== id)
                 {
-                    MessageBox.Show("checked out");
-                    DateTime date = DateTime.Now;
-                    ticket.checkoutTime = date.ToShortTimeString();
-                    newTicketList.RemoveAt(count);
-                    newTicketList.Add(ticket);
+                    if(ticket.checkoutTime == "")
+                    {
+                        MessageBox.Show("checked out");
+                        DateTime date = DateTime.Now;
+                        ticket.checkoutTime = date.ToShortTimeString();
+                        newTicketList.RemoveAt(count);
+                        newTicketList.Add(ticket);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Already checked out");
+                    }
+                    
                 }
                 count = count + 1;
             }

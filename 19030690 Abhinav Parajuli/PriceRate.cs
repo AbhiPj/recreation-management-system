@@ -49,6 +49,7 @@ namespace _19030690_Abhinav_Parajuli
                     }
                 }
           */
+               
                 PD.category = cmbCategory.Text;
                 PD.rate1 = int.Parse(txtRate1.Text);
                 PD.rate2 = int.Parse(txtRate2.Text);
@@ -57,25 +58,36 @@ namespace _19030690_Abhinav_Parajuli
                 PD.wholeDay = int.Parse(txtWholeDay.Text);
                 if (rbtnWeekday.Checked)
                 {
-                    MessageBox.Show("weekday");
                     PD.dayType = rbtnWeekday.Text;
                 }
                 else
                 {
-                    MessageBox.Show("weekend");
                     PD.dayType = rbtnWeekend.Text;
 
                 }
 
                 var category = priceDatas.Select(x => x.category);
+                bool Exist = false;
                 if (category.Contains(PD.category))
                 {
+                    foreach (priceData price in priceDatas)
+                    {
+                        if (price.category==PD.category && price.dayType == PD.dayType)
+                        {
+                            MessageBox.Show("already exists");
+                            Exist = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (Exist)
+                {
+                    MessageBox.Show("already exist if condition");
                 }
                 else
                 {
-                }
-
-                      priceDatas.Add(PD);
+                    priceDatas.Add(PD);
                     WriteCsv(file, priceDatas);
                     var parice = priceDatas.Select(x => x.category);
                     dataGridView1.DataSource = priceDatas;
@@ -85,9 +97,7 @@ namespace _19030690_Abhinav_Parajuli
                     txtRate3.Clear();
                     txtRate4.Clear();
                     txtWholeDay.Clear();
-
-
-                
+                }
             }
             catch(Exception exc)
             {
@@ -154,27 +164,27 @@ namespace _19030690_Abhinav_Parajuli
                     if (duration == "1Hr")
                     {
                          price = rate.rate1;
-                        MessageBox.Show("1 Hour");
+                       
 
                     }
                     else if(duration == "2Hrs")
                     {
-                        MessageBox.Show("2 Hours");
+                      
                         price = rate.rate2;
                     }
                     else if(duration == "3Hrs")
                     {
-                        MessageBox.Show("3 Hours");
+                     
                         price = rate.rate3;
                     }
                     else if(duration == "4Hrs")
                     {
-                        MessageBox.Show("4 Hours");
+                        
                         price = rate.rate4;
                     }
                     else
                     {
-                        MessageBox.Show("all day");
+                  
                         price = rate.wholeDay;
                     }
                 }
