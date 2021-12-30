@@ -55,15 +55,27 @@ namespace _19030690_Abhinav_Parajuli
                 PD.rate3 = int.Parse(txtRate3.Text);
                 PD.rate4 = int.Parse(txtRate4.Text);
                 PD.wholeDay = int.Parse(txtWholeDay.Text);
+                if (rbtnWeekday.Checked)
+                {
+                    MessageBox.Show("weekday");
+                    PD.dayType = rbtnWeekday.Text;
+                }
+                else
+                {
+                    MessageBox.Show("weekend");
+                    PD.dayType = rbtnWeekend.Text;
+
+                }
 
                 var category = priceDatas.Select(x => x.category);
                 if (category.Contains(PD.category))
                 {
-                    MessageBox.Show("already exists");
                 }
                 else
                 {
-                    priceDatas.Add(PD);
+                }
+
+                      priceDatas.Add(PD);
                     WriteCsv(file, priceDatas);
                     var parice = priceDatas.Select(x => x.category);
                     dataGridView1.DataSource = priceDatas;
@@ -75,11 +87,11 @@ namespace _19030690_Abhinav_Parajuli
                     txtWholeDay.Clear();
 
 
-                }
+                
             }
-            catch
+            catch(Exception exc)
             {
-                MessageBox.Show("Please insert all data");
+                MessageBox.Show("Please insert all data" + exc.Message);
             }
         }
        
@@ -130,14 +142,14 @@ namespace _19030690_Abhinav_Parajuli
                 throw new Exception(e.Message);
             }
         }
-        public int GetPrice(string category, string duration)
+        public int GetPrice(string category, string duration, string day)
         {
             priceDatas = ReadCsv(file);
             int price = 0;
             var RateCategory = priceDatas.Select(x => x.category);
             foreach(var rate in priceDatas)
             {
-                if (rate.category==category)
+                if (rate.category==category && rate.dayType == day)
                 {
                     if (duration == "1Hr")
                     {

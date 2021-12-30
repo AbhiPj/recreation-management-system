@@ -39,5 +39,10 @@ namespace _19030690_Abhinav_Parajuli
         {
             ticketDetails1.BringToFront();
         }
+
+        private void btnPriceDetails_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

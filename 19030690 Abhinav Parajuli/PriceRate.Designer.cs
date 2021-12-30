@@ -45,6 +45,8 @@ namespace _19030690_Abhinav_Parajuli
             this.label3 = new System.Windows.Forms.Label();
             this.txtWholeDay = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.rbtnWeekend = new System.Windows.Forms.RadioButton();
+            this.rbtnWeekday = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +58,7 @@ namespace _19030690_Abhinav_Parajuli
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(641, 362);
+            this.dataGridView1.Size = new System.Drawing.Size(641, 411);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -103,7 +105,7 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(169, 408);
+            this.btnSubmit.Location = new System.Drawing.Point(169, 457);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 11;
@@ -113,7 +115,7 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // btnRead
             // 
-            this.btnRead.Location = new System.Drawing.Point(76, 408);
+            this.btnRead.Location = new System.Drawing.Point(68, 457);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(75, 23);
             this.btnRead.TabIndex = 12;
@@ -193,10 +195,34 @@ namespace _19030690_Abhinav_Parajuli
             this.label4.TabIndex = 20;
             this.label4.Text = "Price Rate";
             // 
+            // rbtnWeekend
+            // 
+            this.rbtnWeekend.AutoSize = true;
+            this.rbtnWeekend.Location = new System.Drawing.Point(155, 412);
+            this.rbtnWeekend.Name = "rbtnWeekend";
+            this.rbtnWeekend.Size = new System.Drawing.Size(89, 21);
+            this.rbtnWeekend.TabIndex = 21;
+            this.rbtnWeekend.TabStop = true;
+            this.rbtnWeekend.Text = "Weekend";
+            this.rbtnWeekend.UseVisualStyleBackColor = true;
+            // 
+            // rbtnWeekday
+            // 
+            this.rbtnWeekday.AutoSize = true;
+            this.rbtnWeekday.Location = new System.Drawing.Point(20, 412);
+            this.rbtnWeekday.Name = "rbtnWeekday";
+            this.rbtnWeekday.Size = new System.Drawing.Size(95, 21);
+            this.rbtnWeekday.TabIndex = 22;
+            this.rbtnWeekday.TabStop = true;
+            this.rbtnWeekday.Text = "Weekdays";
+            this.rbtnWeekday.UseVisualStyleBackColor = true;
+            // 
             // PriceRate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.rbtnWeekday);
+            this.Controls.Add(this.rbtnWeekend);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtWholeDay);
             this.Controls.Add(this.label3);
@@ -214,7 +240,7 @@ namespace _19030690_Abhinav_Parajuli
             this.Controls.Add(this.lblTicketCategory);
             this.Controls.Add(this.dataGridView1);
             this.Name = "PriceRate";
-            this.Size = new System.Drawing.Size(931, 493);
+            this.Size = new System.Drawing.Size(989, 557);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -239,5 +265,7 @@ namespace _19030690_Abhinav_Parajuli
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtWholeDay;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RadioButton rbtnWeekend;
+        private System.Windows.Forms.RadioButton rbtnWeekday;
     }
 }

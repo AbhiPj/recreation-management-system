@@ -39,12 +39,14 @@ namespace _19030690_Abhinav_Parajuli
             this.report1 = new _19030690_Abhinav_Parajuli.Report();
             this.priceRate1 = new _19030690_Abhinav_Parajuli.PriceRate();
             this.chart1 = new _19030690_Abhinav_Parajuli.Chart();
+            this.btnPriceDetails = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.btnPriceDetails);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
@@ -59,7 +61,7 @@ namespace _19030690_Abhinav_Parajuli
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(239, 55);
             this.button5.TabIndex = 5;
-            this.button5.Text = "Ticket details";
+            this.button5.Text = "Ticket";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -128,6 +130,16 @@ namespace _19030690_Abhinav_Parajuli
             this.chart1.Size = new System.Drawing.Size(1002, 731);
             this.chart1.TabIndex = 6;
             // 
+            // btnPriceDetails
+            // 
+            this.btnPriceDetails.Location = new System.Drawing.Point(-3, 245);
+            this.btnPriceDetails.Name = "btnPriceDetails";
+            this.btnPriceDetails.Size = new System.Drawing.Size(239, 55);
+            this.btnPriceDetails.TabIndex = 6;
+            this.btnPriceDetails.Text = "Price Details";
+            this.btnPriceDetails.UseVisualStyleBackColor = true;
+            this.btnPriceDetails.Click += new System.EventHandler(this.btnPriceDetails_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -159,6 +171,7 @@ namespace _19030690_Abhinav_Parajuli
         private Admin admin1;
         private TicketDetails ticketDetails1;
         private Chart chart1;
+        private System.Windows.Forms.Button btnPriceDetails;
     }
 }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -69,6 +70,21 @@ namespace _19030690_Abhinav_Parajuli
                     TicketDetails TD = new TicketDetails();
                     List<TicketData> ticketDatas;
                     ticketDatas = TD.getTicketData();
+                    DateTime date = DateTime.Now;
+                    int year = date.Date.Year;
+                    DateTime firstDay = new DateTime(year, 1, 1);
+                    CultureInfo cul = CultureInfo.CurrentCulture;
+                    int weekNo = cul.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstDay, DayOfWeek.Sunday);
+                    int days = (weekNo - 1) * 7;
+                    DateTime dt1 = firstDay.AddDays(days);
+                    DayOfWeek dow = dt1.DayOfWeek;
+                    DateTime startDateOfWeek = dt1.AddDays(-(int)dow);
+                    DateTime endDateOfWeek = startDateOfWeek.AddDays(6);
+                    string start = startDateOfWeek.ToShortDateString();
+                    string end = endDateOfWeek.ToShortDateString();
+                    string curDate = date.ToShortDateString();
+                    Console.WriteLine("Start Of Week: " + startDateOfWeek.ToShortDateString());
+                    Console.WriteLine("End of week:" + endDateOfWeek.ToShortDateString());
 
                     var groupList = ticketDatas.GroupBy(a => a.Date).Select((
                         s => new
@@ -77,7 +93,7 @@ namespace _19030690_Abhinav_Parajuli
                             Value = s.Sum(a => a.price),
                             visitor = s.Count()
 
-                        }));
+                        })).Where(s => DateTime.Parse(s.Key) >= DateTime.Parse(start) && DateTime.Parse(s.Key) <= DateTime.Parse(end));
                     foreach (var group in groupList)
                     {
                         WeeklyReport WR = new WeeklyReport();

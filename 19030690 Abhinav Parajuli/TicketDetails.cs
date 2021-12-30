@@ -47,6 +47,18 @@ namespace _19030690_Abhinav_Parajuli
                     Console.WriteLine("Start Of Week: " + startDateOfWeek.ToShortDateString());
                     Console.WriteLine("End of week:" + endDateOfWeek.ToShortDateString());
 
+                    DayOfWeek day = date.DayOfWeek;
+                    var todayDay = day.ToString();
+                    string dayType;
+                    
+                    if (todayDay == "Saturday")
+                    {
+                         dayType = "Weekend";
+                    }
+                    else
+                    {
+                         dayType = "Weekdays";
+                    }
 
                     if (File.Exists(file))
                     {
@@ -61,7 +73,7 @@ namespace _19030690_Abhinav_Parajuli
 
 
                     PriceRate PD = new PriceRate();
-                    int price = PD.GetPrice(TK.category, TK.time_duration);
+                    int price = PD.GetPrice(TK.category, TK.time_duration, dayType);
                     TK.price = price;
 
                     ticketDatas.Add(TK);

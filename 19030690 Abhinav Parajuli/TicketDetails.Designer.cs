@@ -40,6 +40,7 @@ namespace _19030690_Abhinav_Parajuli
             this.cmbDuration = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnRead = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,10 +152,19 @@ namespace _19030690_Abhinav_Parajuli
             this.btnRead.UseVisualStyleBackColor = true;
             this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Enabled = false;
+            this.dateTimePicker1.Location = new System.Drawing.Point(86, 258);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(222, 22);
+            this.dateTimePicker1.TabIndex = 14;
+            // 
             // TicketDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnRead);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cmbDuration);
@@ -187,5 +197,6 @@ namespace _19030690_Abhinav_Parajuli
         private System.Windows.Forms.ComboBox cmbDuration;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnRead;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
