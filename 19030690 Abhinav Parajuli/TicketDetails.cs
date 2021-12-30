@@ -65,11 +65,14 @@ namespace _19030690_Abhinav_Parajuli
                         ticketDatas = ReadCsv(file);
                     }
                     TicketData TK = new TicketData();
+                    TK.id = int.Parse(txtID.Text);
                     TK.category = cmbTicketCategory.Text;
                     TK.name = txtName.Text;
                     TK.age = int.Parse(txtAge.Text);
                     TK.Date = curDate;
+                    TK.checkinTime = date.ToShortTimeString();
                     TK.time_duration = cmbDuration.Text;
+                    TK.checkoutTime = null;
 
 
                     PriceRate PD = new PriceRate();
@@ -134,6 +137,31 @@ namespace _19030690_Abhinav_Parajuli
         {
             ticketDatas = ReadCsv(file);
             dataGridView1.DataSource = ticketDatas;
+        }
+
+        private void btnCheckout_Click(object sender, EventArgs e)
+        {
+            ticketDatas = ReadCsv(file);
+            List<TicketData> newTicketList;
+            newTicketList = ReadCsv(file);
+
+            TicketData TK = new TicketData();
+            var id = int.Parse(txtCheckoutID.Text);
+            var count = 0;
+            foreach(TicketData ticket in ticketDatas)
+            {
+                if (ticket.id== id)
+                {
+                    MessageBox.Show("checked out");
+                    DateTime date = DateTime.Now;
+                    ticket.checkoutTime = date.ToShortTimeString();
+                    newTicketList.RemoveAt(count);
+                    newTicketList.Add(ticket);
+                }
+                count = count + 1;
+            }
+            WriteCsv(file, newTicketList);
+
         }
     }
 }

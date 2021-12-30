@@ -166,7 +166,6 @@ namespace _19030690_Abhinav_Parajuli
                     {
                         MessageBox.Show("3 Hours");
                         price = rate.rate3;
-
                     }
                     else if(duration == "4Hrs")
                     {

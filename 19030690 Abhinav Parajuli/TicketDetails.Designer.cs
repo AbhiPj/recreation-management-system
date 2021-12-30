@@ -41,6 +41,11 @@ namespace _19030690_Abhinav_Parajuli
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnRead = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnCheckout = new System.Windows.Forms.Button();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.lblID = new System.Windows.Forms.Label();
+            this.txtCheckoutID = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -160,10 +165,57 @@ namespace _19030690_Abhinav_Parajuli
             this.dateTimePicker1.Size = new System.Drawing.Size(222, 22);
             this.dateTimePicker1.TabIndex = 14;
             // 
+            // btnCheckout
+            // 
+            this.btnCheckout.Location = new System.Drawing.Point(750, 217);
+            this.btnCheckout.Name = "btnCheckout";
+            this.btnCheckout.Size = new System.Drawing.Size(75, 23);
+            this.btnCheckout.TabIndex = 15;
+            this.btnCheckout.Text = "Checkout";
+            this.btnCheckout.UseVisualStyleBackColor = true;
+            this.btnCheckout.Click += new System.EventHandler(this.btnCheckout_Click);
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(208, 45);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(100, 22);
+            this.txtID.TabIndex = 16;
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(83, 50);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(21, 17);
+            this.lblID.TabIndex = 17;
+            this.lblID.Text = "ID";
+            // 
+            // txtCheckoutID
+            // 
+            this.txtCheckoutID.Location = new System.Drawing.Point(620, 218);
+            this.txtCheckoutID.Name = "txtCheckoutID";
+            this.txtCheckoutID.Size = new System.Drawing.Size(100, 22);
+            this.txtCheckoutID.TabIndex = 18;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(533, 223);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(21, 17);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "ID";
+            // 
             // TicketDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtCheckoutID);
+            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.txtID);
+            this.Controls.Add(this.btnCheckout);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnRead);
             this.Controls.Add(this.dataGridView1);
@@ -198,5 +250,10 @@ namespace _19030690_Abhinav_Parajuli
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnRead;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnCheckout;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Label lblID;
+        private System.Windows.Forms.TextBox txtCheckoutID;
+        private System.Windows.Forms.Label label3;
     }
 }

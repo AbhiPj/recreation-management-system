@@ -13,8 +13,13 @@ namespace _19030690_Abhinav_Parajuli
         public string name { get; set; }
        
         public int age { get; set; }
+        public int id { get; set; }
 
-        public string time_duration {get; set;}
+        public string time_duration { get; set; }
+
+        public string checkinTime {get; set;}
+
+        public string checkoutTime { get; set; }
 
         public string Date { get; set; }
 
