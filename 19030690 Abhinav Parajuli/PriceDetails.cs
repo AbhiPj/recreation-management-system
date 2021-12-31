@@ -22,7 +22,7 @@ namespace _19030690_Abhinav_Parajuli
         private void btnReadPrice_Click(object sender, EventArgs e)
         {
             PriceRate PR = new PriceRate();
-            string priceFile = @"C:\Users\Abhinav\price.csv";
+            string priceFile = @"../../../price.csv";
             priceList= PR.ReadCsv(priceFile);
             priceGridView.DataSource = priceList;
         }

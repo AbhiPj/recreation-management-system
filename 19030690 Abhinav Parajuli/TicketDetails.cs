@@ -15,17 +15,14 @@ namespace _19030690_Abhinav_Parajuli
 {
     public partial class TicketDetails : UserControl
     {
-        List<TicketData> ticketDatas;
+        List<TicketData> ticketDatas= new List<TicketData>();
         private IEnumerable<int> userID;
-        string file = @"C:\Users\Abhinav\TicketDetails.csv";
-        string priceCsv = @"C:\Users\Abhinav\price.csv";
+        string file = @"../../../TicketDetails.csv";
+        string priceCsv = @"../../../price.csv";
 
         public TicketDetails()
         {
             InitializeComponent();
-            ticketDatas = new List<TicketData>();
-
-
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -64,6 +61,7 @@ namespace _19030690_Abhinav_Parajuli
                     TK.Time_duration = null;
                     TK.CheckoutTime = null;
                     TK.Price = 0;
+                    TK.Day = todayDay;
 
                     if (File.Exists(file))
                     {
@@ -82,11 +80,12 @@ namespace _19030690_Abhinav_Parajuli
                     }
                     else
                     {
-                       // int price = PD.GetPrice(TK.category, TK.time_duration, dayType);
+                        // int price = PD.GetPrice(TK.category, TK.time_duration, dayType);
                         TK.Price = 0;
                         ticketDatas.Add(TK);
                         WriteCsv(file, ticketDatas);
                     }
+                       
                 }
                 else
                 {
@@ -100,7 +99,7 @@ namespace _19030690_Abhinav_Parajuli
         }
         public void WriteCsv(string path, List<TicketData> list)
         {
-            using (StreamWriter writer = new StreamWriter(@"C:\Users\Abhinav\TicketDetails.csv", false, System.Text.Encoding.UTF8))
+            using (StreamWriter writer = new StreamWriter(@"../../../TicketDetails.csv", false, System.Text.Encoding.UTF8))
             {
                 var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture);
                 csvWriter.WriteRecords(list); // where values implements IEnumerable
@@ -162,8 +161,6 @@ namespace _19030690_Abhinav_Parajuli
                     {
                         if (ticket.CheckoutTime == "")
                         {
-                            MessageBox.Show("checked out");
-
                             DateTime date = DateTime.Now;
                             string curDate = date.ToShortDateString();
 
@@ -194,6 +191,8 @@ namespace _19030690_Abhinav_Parajuli
 
                             newTicketList.RemoveAt(count);
                             newTicketList.Add(ticket);
+                            MessageBox.Show("checked out " +"\n Price: " + price1 + "\nDuration: " + ticket.Time_duration + "\nCheckOut Time: " + ticket.CheckoutTime);
+
                         }
                         else
                         {

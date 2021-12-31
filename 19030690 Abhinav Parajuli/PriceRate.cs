@@ -20,7 +20,7 @@ namespace _19030690_Abhinav_Parajuli
     {
 
         List<priceData> priceDatas;
-        string file = @"C:\Users\Abhinav\price.csv";
+        string file = @"../../../price.csv";
         public PriceRate()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace _19030690_Abhinav_Parajuli
         {
             try
             {
-                string file = @"C:\Users\Abhinav\price.csv";
+                string file = @"../../../price.csv";
                 if (File.Exists(file))
                 {
                     priceDatas = ReadCsv(file);
@@ -107,7 +107,7 @@ namespace _19030690_Abhinav_Parajuli
        
         private void btnRead_Click(object sender, EventArgs e)
         {
-            var path = @"C:\Users\Abhinav\price.csv";
+            var path = @"../../../price.csv";
             if (File.Exists(path))
             {
                 priceDatas = ReadCsv(path);
@@ -121,7 +121,7 @@ namespace _19030690_Abhinav_Parajuli
         }
         public void WriteCsv(string path, List<priceData> list)
         {
-            using (StreamWriter writer = new StreamWriter(@"C:\Users\Abhinav\price.csv", false, System.Text.Encoding.UTF8))
+            using (StreamWriter writer = new StreamWriter(@"../../../price.csv", false, System.Text.Encoding.UTF8))
             {
                 var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture);
                 csvWriter.WriteRecords(list); // where values implements IEnumerable

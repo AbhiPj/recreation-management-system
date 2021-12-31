@@ -16,7 +16,7 @@ namespace _19030690_Abhinav_Parajuli
     {
         List<DailyReport> dailyReports;
         List<WeeklyReport> weeklyReports;
-        string file = @"C:\Users\Abhinav\TicketDetails.csv";
+        string file = @"../../../TicketDetails.csv";
         public Report()
         {
             InitializeComponent();
@@ -71,7 +71,7 @@ namespace _19030690_Abhinav_Parajuli
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Error" + exc.Message);
+                MessageBox.Show("Error1" + exc.Message);
             }
         }
         public List<WeeklyReport> getWeeklyReport()
@@ -105,11 +105,13 @@ namespace _19030690_Abhinav_Parajuli
                 foreach (var group in groupList)
                 {
                     WeeklyReport WR = new WeeklyReport();
-                    WR.date = group.Key;
+                    DateTime dateDay = DateTime.Parse(group.Key);
+                    Day day = (Day)dateDay.DayOfWeek;
+
+                    WR.date = day.ToString();
                     WR.TotalVisitor = group.visitor;
                     WR.TotalEarning = group.Value;
                     weeklyReports.Add(WR);
-
                 }
                 return weeklyReports;
             }

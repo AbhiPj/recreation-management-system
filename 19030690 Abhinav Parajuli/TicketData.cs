@@ -22,6 +22,8 @@ namespace _19030690_Abhinav_Parajuli
         public string CheckoutTime { get; set; }
 
         public string Date { get; set; }
+        public string Day { get; set; }
+
 
         public string Category { get; set; }
 
