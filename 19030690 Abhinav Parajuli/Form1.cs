@@ -42,7 +42,7 @@ namespace _19030690_Abhinav_Parajuli
 
         private void btnPriceDetails_Click(object sender, EventArgs e)
         {
-
+            priceDetails1.BringToFront();
         }
     }
 }

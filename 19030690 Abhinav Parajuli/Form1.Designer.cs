@@ -30,6 +30,7 @@ namespace _19030690_Abhinav_Parajuli
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPriceDetails = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -39,7 +40,7 @@ namespace _19030690_Abhinav_Parajuli
             this.report1 = new _19030690_Abhinav_Parajuli.Report();
             this.priceRate1 = new _19030690_Abhinav_Parajuli.PriceRate();
             this.chart1 = new _19030690_Abhinav_Parajuli.Chart();
-            this.btnPriceDetails = new System.Windows.Forms.Button();
+            this.priceDetails1 = new _19030690_Abhinav_Parajuli.PriceDetails();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +55,16 @@ namespace _19030690_Abhinav_Parajuli
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(239, 734);
             this.panel1.TabIndex = 0;
+            // 
+            // btnPriceDetails
+            // 
+            this.btnPriceDetails.Location = new System.Drawing.Point(-3, 245);
+            this.btnPriceDetails.Name = "btnPriceDetails";
+            this.btnPriceDetails.Size = new System.Drawing.Size(239, 55);
+            this.btnPriceDetails.TabIndex = 6;
+            this.btnPriceDetails.Text = "Price Details";
+            this.btnPriceDetails.UseVisualStyleBackColor = true;
+            this.btnPriceDetails.Click += new System.EventHandler(this.btnPriceDetails_Click);
             // 
             // button5
             // 
@@ -98,6 +109,7 @@ namespace _19030690_Abhinav_Parajuli
             // ticketDetails1
             // 
             this.ticketDetails1.Location = new System.Drawing.Point(245, 2);
+            this.ticketDetails1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ticketDetails1.Name = "ticketDetails1";
             this.ticketDetails1.Size = new System.Drawing.Size(999, 733);
             this.ticketDetails1.TabIndex = 5;
@@ -130,21 +142,19 @@ namespace _19030690_Abhinav_Parajuli
             this.chart1.Size = new System.Drawing.Size(1002, 731);
             this.chart1.TabIndex = 6;
             // 
-            // btnPriceDetails
+            // priceDetails1
             // 
-            this.btnPriceDetails.Location = new System.Drawing.Point(-3, 245);
-            this.btnPriceDetails.Name = "btnPriceDetails";
-            this.btnPriceDetails.Size = new System.Drawing.Size(239, 55);
-            this.btnPriceDetails.TabIndex = 6;
-            this.btnPriceDetails.Text = "Price Details";
-            this.btnPriceDetails.UseVisualStyleBackColor = true;
-            this.btnPriceDetails.Click += new System.EventHandler(this.btnPriceDetails_Click);
+            this.priceDetails1.Location = new System.Drawing.Point(245, 2);
+            this.priceDetails1.Name = "priceDetails1";
+            this.priceDetails1.Size = new System.Drawing.Size(999, 731);
+            this.priceDetails1.TabIndex = 7;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1242, 734);
+            this.Controls.Add(this.priceDetails1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.ticketDetails1);
             this.Controls.Add(this.admin1);
@@ -172,6 +182,7 @@ namespace _19030690_Abhinav_Parajuli
         private TicketDetails ticketDetails1;
         private Chart chart1;
         private System.Windows.Forms.Button btnPriceDetails;
+        private PriceDetails priceDetails1;
     }
 }
 

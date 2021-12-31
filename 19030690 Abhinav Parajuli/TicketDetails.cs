@@ -22,8 +22,8 @@ namespace _19030690_Abhinav_Parajuli
 
         public TicketDetails()
         {
-            InitializeComponent();
             ticketDatas = new List<TicketData>();
+            InitializeComponent();
 
         }
 
