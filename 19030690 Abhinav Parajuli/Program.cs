@@ -16,7 +16,7 @@ namespace _19030690_Abhinav_Parajuli
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new home());
+            Application.Run(new Home());
         }
     }
 }

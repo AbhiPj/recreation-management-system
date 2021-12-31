@@ -27,7 +27,7 @@ namespace _19030690_Abhinav_Parajuli
             priceDatas = new List<priceData>();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
             try
             {
@@ -105,7 +105,7 @@ namespace _19030690_Abhinav_Parajuli
             }
         }
        
-        private void button2_Click(object sender, EventArgs e)
+        private void btnRead_Click(object sender, EventArgs e)
         {
             var path = @"C:\Users\Abhinav\price.csv";
             if (File.Exists(path))

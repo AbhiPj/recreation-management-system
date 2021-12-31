@@ -61,7 +61,7 @@ namespace _19030690_Abhinav_Parajuli
             // txtUsername
             // 
             this.txtUsername.Location = new System.Drawing.Point(376, 235);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(143, 20);
             this.txtUsername.TabIndex = 2;
@@ -69,7 +69,7 @@ namespace _19030690_Abhinav_Parajuli
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(376, 305);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(143, 20);
             this.txtPassword.TabIndex = 3;
@@ -77,7 +77,7 @@ namespace _19030690_Abhinav_Parajuli
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(358, 419);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 32);
             this.button1.TabIndex = 4;
@@ -104,6 +104,7 @@ namespace _19030690_Abhinav_Parajuli
             this.priceRate1.Name = "priceRate1";
             this.priceRate1.Size = new System.Drawing.Size(877, 709);
             this.priceRate1.TabIndex = 7;
+            this.priceRate1.Load += new System.EventHandler(this.priceRate1_Load);
             // 
             // Admin
             // 
@@ -117,7 +118,7 @@ namespace _19030690_Abhinav_Parajuli
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblUsername);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Admin";
             this.Size = new System.Drawing.Size(877, 709);
             this.ResumeLayout(false);

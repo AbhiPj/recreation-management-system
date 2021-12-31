@@ -10,25 +10,25 @@ using System.Windows.Forms;
 
 namespace _19030690_Abhinav_Parajuli
 {
-    public partial class home : Form
+    public partial class Home : Form
     {
-        public home()
+        public Home()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAdmin_Click_1(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
             this.Hide();
-            form.Show();
+            LoginAdmin loginAdmin = new LoginAdmin();
+            loginAdmin.Show();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnEmployee_Click_1(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
             this.Hide();
-            form.Show();
+            LoginEmployee loginEmployee = new LoginEmployee();
+            loginEmployee.Show();
         }
     }
 }

@@ -28,27 +28,16 @@ namespace _19030690_Abhinav_Parajuli
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
             try
             {
                 if (File.Exists(priceCsv))
                 {
                     DateTime date = DateTime.Now;
-                    int year = date.Date.Year;
-                    DateTime firstDay = new DateTime(year, 1, 1);
-                    CultureInfo cul = CultureInfo.CurrentCulture;
-                    int weekNo = cul.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstDay, DayOfWeek.Sunday);
-                    int days = (weekNo - 1) * 7;
-                    DateTime dt1 = firstDay.AddDays(days);
-                    DayOfWeek dow = dt1.DayOfWeek;
-                    DateTime startDateOfWeek = dt1.AddDays(-(int)dow);
-                    DateTime endDateOfWeek = startDateOfWeek.AddDays(6);
-                    string start = startDateOfWeek.ToShortDateString();
-                    string end = endDateOfWeek.ToShortDateString();
+               
                     string curDate = date.ToShortDateString();
-                    Console.WriteLine("Start Of Week: " + startDateOfWeek.ToShortDateString());
-                    Console.WriteLine("End of week:" + endDateOfWeek.ToShortDateString());
+
 
                     DayOfWeek day = date.DayOfWeek;
                     var todayDay = day.ToString();
@@ -176,20 +165,8 @@ namespace _19030690_Abhinav_Parajuli
                             MessageBox.Show("checked out");
 
                             DateTime date = DateTime.Now;
-                            int year = date.Date.Year;
-                            DateTime firstDay = new DateTime(year, 1, 1);
-                            CultureInfo cul = CultureInfo.CurrentCulture;
-                            int weekNo = cul.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstDay, DayOfWeek.Sunday);
-                            int days = (weekNo - 1) * 7;
-                            DateTime dt1 = firstDay.AddDays(days);
-                            DayOfWeek dow = dt1.DayOfWeek;
-                            DateTime startDateOfWeek = dt1.AddDays(-(int)dow);
-                            DateTime endDateOfWeek = startDateOfWeek.AddDays(6);
-                            string start = startDateOfWeek.ToShortDateString();
-                            string end = endDateOfWeek.ToShortDateString();
                             string curDate = date.ToShortDateString();
-                            Console.WriteLine("Start Of Week: " + startDateOfWeek.ToShortDateString());
-                            Console.WriteLine("End of week:" + endDateOfWeek.ToShortDateString());
+
 
                             DayOfWeek day = date.DayOfWeek;
                             var todayDay = day.ToString();

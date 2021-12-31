@@ -112,25 +112,25 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(159, 565);
+            this.btnSubmit.Location = new System.Drawing.Point(154, 565);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(80, 30);
+            this.btnSubmit.Size = new System.Drawing.Size(95, 30);
             this.btnSubmit.TabIndex = 11;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.button1_Click);
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnRead
             // 
-            this.btnRead.Location = new System.Drawing.Point(57, 565);
+            this.btnRead.Location = new System.Drawing.Point(39, 565);
             this.btnRead.Margin = new System.Windows.Forms.Padding(2);
             this.btnRead.Name = "btnRead";
-            this.btnRead.Size = new System.Drawing.Size(76, 30);
+            this.btnRead.Size = new System.Drawing.Size(95, 30);
             this.btnRead.TabIndex = 12;
             this.btnRead.Text = "Read";
             this.btnRead.UseVisualStyleBackColor = true;
-            this.btnRead.Click += new System.EventHandler(this.button2_Click);
+            this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
             // 
             // label1
             // 

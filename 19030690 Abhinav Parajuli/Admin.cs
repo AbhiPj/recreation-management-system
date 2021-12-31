@@ -34,5 +34,10 @@ namespace _19030690_Abhinav_Parajuli
                 MessageBox.Show("Invalid");
             }
         }
+
+        private void priceRate1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

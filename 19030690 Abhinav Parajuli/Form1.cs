@@ -20,22 +20,22 @@ namespace _19030690_Abhinav_Parajuli
             report1.BringToFront();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnReport_Click(object sender, EventArgs e)
         {
             report1.BringToFront();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnChart_Click(object sender, EventArgs e)
         {
             chart1.BringToFront();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnAdmin_Click(object sender, EventArgs e)
         {
             admin1.BringToFront();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnTicket_Click(object sender, EventArgs e)
         {
             ticketDetails1.BringToFront();
         }
@@ -48,8 +48,13 @@ namespace _19030690_Abhinav_Parajuli
         private void btnLogout_Click(object sender, EventArgs e)
         {
             this.Hide();
-            home home = new home();
+            Home home = new Home();
             home.Show();
+        }
+
+        private void btnRegisterEmployee_Click(object sender, EventArgs e)
+        {
+            registerEmployee1.BringToFront();
         }
     }
 }
