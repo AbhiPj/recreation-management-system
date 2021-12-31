@@ -66,21 +66,21 @@ namespace _19030690_Abhinav_Parajuli
                     TicketData TK = new TicketData();
                     PriceRate PD = new PriceRate();
 
-                    TK.id = int.Parse(txtID.Text);
-                    TK.category = cmbTicketCategory.Text;
-                    TK.name = txtName.Text;
-                    TK.age = int.Parse(txtAge.Text);
+                    TK.Id = int.Parse(txtID.Text);
+                    TK.Category = cmbTicketCategory.Text;
+                    TK.Name = txtName.Text;
+                    TK.Age = int.Parse(txtAge.Text);
                     TK.Date = curDate;
-                    TK.checkinTime = date.ToShortTimeString();
-                    TK.time_duration = null;
-                    TK.checkoutTime = null;
-                    TK.price = 0;
+                    TK.CheckinTime = date.ToShortTimeString();
+                    TK.Time_duration = null;
+                    TK.CheckoutTime = null;
+                    TK.Price = 0;
 
                     if (File.Exists(file))
                     {
                         ticketDatas = ReadCsv(file);
-                        userID = ticketDatas.Select(x => x.id);
-                        if (userID.Contains(TK.id))
+                        userID = ticketDatas.Select(x => x.Id);
+                        if (userID.Contains(TK.Id))
                         {
                             MessageBox.Show("User with the ID already exists");
                         }
@@ -94,7 +94,7 @@ namespace _19030690_Abhinav_Parajuli
                     else
                     {
                        // int price = PD.GetPrice(TK.category, TK.time_duration, dayType);
-                        TK.price = 0;
+                        TK.Price = 0;
                         ticketDatas.Add(TK);
                         WriteCsv(file, ticketDatas);
                     }
@@ -158,74 +158,80 @@ namespace _19030690_Abhinav_Parajuli
 
         private void btnCheckout_Click(object sender, EventArgs e)
         {
-            ticketDatas = ReadCsv(file);
-            List<TicketData> newTicketList;
-            newTicketList = ReadCsv(file);
-
-            TicketData TK = new TicketData();
-            var id = int.Parse(txtCheckoutID.Text);
-            var count = 0;
-            foreach(TicketData ticket in ticketDatas)
+            try
             {
-                if (ticket.id== id)
+                ticketDatas = ReadCsv(file);
+                List<TicketData> newTicketList;
+                newTicketList = ReadCsv(file);
+
+                TicketData TK = new TicketData();
+                var id = int.Parse(txtCheckoutID.Text);
+                var count = 0;
+                foreach (TicketData ticket in ticketDatas)
                 {
-                    if(ticket.checkoutTime == "")
+                    if (ticket.Id == id)
                     {
-                        MessageBox.Show("checked out");
-
-                        DateTime date = DateTime.Now;
-                        int year = date.Date.Year;
-                        DateTime firstDay = new DateTime(year, 1, 1);
-                        CultureInfo cul = CultureInfo.CurrentCulture;
-                        int weekNo = cul.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstDay, DayOfWeek.Sunday);
-                        int days = (weekNo - 1) * 7;
-                        DateTime dt1 = firstDay.AddDays(days);
-                        DayOfWeek dow = dt1.DayOfWeek;
-                        DateTime startDateOfWeek = dt1.AddDays(-(int)dow);
-                        DateTime endDateOfWeek = startDateOfWeek.AddDays(6);
-                        string start = startDateOfWeek.ToShortDateString();
-                        string end = endDateOfWeek.ToShortDateString();
-                        string curDate = date.ToShortDateString();
-                        Console.WriteLine("Start Of Week: " + startDateOfWeek.ToShortDateString());
-                        Console.WriteLine("End of week:" + endDateOfWeek.ToShortDateString());
-
-                        DayOfWeek day = date.DayOfWeek;
-                        var todayDay = day.ToString();
-                        string dayType;
-
-                        if (todayDay == "Saturday")
+                        if (ticket.CheckoutTime == "")
                         {
-                            dayType = "Weekend";
+                            MessageBox.Show("checked out");
+
+                            DateTime date = DateTime.Now;
+                            int year = date.Date.Year;
+                            DateTime firstDay = new DateTime(year, 1, 1);
+                            CultureInfo cul = CultureInfo.CurrentCulture;
+                            int weekNo = cul.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstDay, DayOfWeek.Sunday);
+                            int days = (weekNo - 1) * 7;
+                            DateTime dt1 = firstDay.AddDays(days);
+                            DayOfWeek dow = dt1.DayOfWeek;
+                            DateTime startDateOfWeek = dt1.AddDays(-(int)dow);
+                            DateTime endDateOfWeek = startDateOfWeek.AddDays(6);
+                            string start = startDateOfWeek.ToShortDateString();
+                            string end = endDateOfWeek.ToShortDateString();
+                            string curDate = date.ToShortDateString();
+                            Console.WriteLine("Start Of Week: " + startDateOfWeek.ToShortDateString());
+                            Console.WriteLine("End of week:" + endDateOfWeek.ToShortDateString());
+
+                            DayOfWeek day = date.DayOfWeek;
+                            var todayDay = day.ToString();
+                            string dayType;
+
+                            if (todayDay == "Saturday")
+                            {
+                                dayType = "Weekend";
+                            }
+                            else
+                            {
+                                dayType = "Weekdays";
+                            }
+
+                            ticket.CheckoutTime = date.ToShortTimeString();
+                            TimeSpan diff = getDuration(ticket.CheckinTime, ticket.CheckoutTime);
+                            string timeDiff = diff.TotalHours.ToString();
+                            ticket.Time_duration = diff.ToString();
+
+
+                            PriceRate PR = new PriceRate();
+
+                            int price1 = PR.GetPrice(ticket.Category, timeDiff, dayType);
+                            ticket.Price = price1;
+
+                            newTicketList.RemoveAt(count);
+                            newTicketList.Add(ticket);
                         }
                         else
                         {
-                            dayType = "Weekdays";
+                            MessageBox.Show("Already checked out");
                         }
 
-                        ticket.checkoutTime = date.ToShortTimeString();
-                        TimeSpan diff = getDuration(ticket.checkinTime,ticket.checkoutTime);
-                        string timeDiff = diff.TotalHours.ToString();
-                        ticket.time_duration = diff.ToString();
-
-
-                        PriceRate PR = new PriceRate();
-
-                        int price1 = PR.GetPrice(ticket.category, timeDiff, dayType);
-                        ticket.price = price1;
-
-                        newTicketList.RemoveAt(count);
-                        newTicketList.Add(ticket);
                     }
-                    else
-                    {
-                        MessageBox.Show("Already checked out");
-                    }
-                    
+                    count = count + 1;
                 }
-                count = count + 1;
+                WriteCsv(file, newTicketList);
             }
-            WriteCsv(file, newTicketList);
+            catch
+            {
 
+            }
         }
         public TimeSpan getDuration(string checkIn, string checkOut)
         {

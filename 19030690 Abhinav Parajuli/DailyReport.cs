@@ -9,8 +9,8 @@ namespace _19030690_Abhinav_Parajuli
     class DailyReport
     {
  
-        public string category { get; set; }
-        public int dailyCustomers { get; set; }
+        public string Category { get; set; }
+        public int DailyCustomers { get; set; }
         
     }
 }

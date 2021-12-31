@@ -22,27 +22,28 @@ namespace _19030690_Abhinav_Parajuli
 
         private void btnLoadData_Click(object sender, EventArgs e)
         {
-            List<string> xval = new List<string>();
-            List<double> totalVisitor = new List<double>();
-            List<double> totalEarning = new List<double>();
-
-            Report R = new Report();
-            chartList = R.getWeeklyReport();
-            foreach (WeeklyReport report in chartList)
+            try
             {
-                xval.Add(report.date);
-                totalVisitor.Add(report.totalVisitor);
-                totalEarning.Add(report.totalEarning);
+                List<string> xval = new List<string>();
+                List<double> totalVisitor = new List<double>();
+                List<double> totalEarning = new List<double>();
 
-
-
+                Report R = new Report();
+                chartList = R.getWeeklyReport();
+                foreach (WeeklyReport report in chartList)
+                {
+                    xval.Add(report.date);
+                    totalVisitor.Add(report.TotalVisitor);
+                    totalEarning.Add(report.TotalEarning);
+                }
+                weeklyChart.Series["Total Visitor"].Points.DataBindXY(xval, totalVisitor);
+                weeklyChart.Series["Total Earning"].Points.DataBindXY(xval, totalEarning);
+            }
+            catch(Exception ex)
+            {
 
             }
-            weeklyChart.Series["Total Visitor"].Points.DataBindXY(xval, totalVisitor);
-            weeklyChart.Series["Total Earning"].Points.DataBindXY(xval, totalEarning);
-
-
-            // weeklyChart.DataSource = chartList;
+         
 
         }
     }

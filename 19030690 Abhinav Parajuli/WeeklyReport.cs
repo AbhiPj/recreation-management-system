@@ -9,8 +9,8 @@ namespace _19030690_Abhinav_Parajuli
     public class WeeklyReport
     {
         public string date { get; set; }
-        public int totalVisitor { get; set; }
+        public int TotalVisitor { get; set; }
 
-        public int totalEarning{get; set;}
+        public int TotalEarning{get; set;}
     }
 }

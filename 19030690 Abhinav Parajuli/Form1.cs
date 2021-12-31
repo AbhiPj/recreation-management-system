@@ -44,5 +44,12 @@ namespace _19030690_Abhinav_Parajuli
         {
             priceDetails1.BringToFront();
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            home home = new home();
+            home.Show();
+        }
     }
 }

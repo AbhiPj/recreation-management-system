@@ -39,13 +39,13 @@ namespace _19030690_Abhinav_Parajuli
                     TicketDetails TD = new TicketDetails();
                     List<TicketData> dailyReport;
                     dailyReport = TD.getTicketData();
-                    var groupList = dailyReport.GroupBy(a => a.category);
+                    var groupList = dailyReport.GroupBy(a => a.Category);
 
                     foreach (var group in groupList)
                     {
                         DailyReport DR = new DailyReport();
-                        DR.category = group.Key;
-                        DR.dailyCustomers = group.Count();
+                        DR.Category = group.Key;
+                        DR.DailyCustomers = group.Count();
                         dailyReports.Add(DR);
                     }
                     dailyReportGrid.DataSource = dailyReports;
@@ -98,7 +98,7 @@ namespace _19030690_Abhinav_Parajuli
                     s => new
                     {
                         Key = s.Key,
-                        Value = s.Sum(a => a.price),
+                        Value = s.Sum(a => a.Price),
                         visitor = s.Count()
 
                     })).Where(s => DateTime.Parse(s.Key) >= DateTime.Parse(start) && DateTime.Parse(s.Key) <= DateTime.Parse(end));
@@ -106,8 +106,8 @@ namespace _19030690_Abhinav_Parajuli
                 {
                     WeeklyReport WR = new WeeklyReport();
                     WR.date = group.Key;
-                    WR.totalVisitor = group.visitor;
-                    WR.totalEarning = group.Value;
+                    WR.TotalVisitor = group.visitor;
+                    WR.TotalEarning = group.Value;
                     weeklyReports.Add(WR);
 
                 }

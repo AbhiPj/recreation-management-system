@@ -42,20 +42,20 @@ namespace _19030690_Abhinav_Parajuli
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(301, 42);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(356, 36);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 36);
+            this.label1.Size = new System.Drawing.Size(125, 45);
             this.label1.TabIndex = 1;
             this.label1.Text = "Chart";
             // 
             // btnLoadData
             // 
-            this.btnLoadData.Location = new System.Drawing.Point(275, 531);
-            this.btnLoadData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLoadData.Location = new System.Drawing.Point(723, 648);
+            this.btnLoadData.Margin = new System.Windows.Forms.Padding(2);
             this.btnLoadData.Name = "btnLoadData";
-            this.btnLoadData.Size = new System.Drawing.Size(91, 19);
+            this.btnLoadData.Size = new System.Drawing.Size(106, 32);
             this.btnLoadData.TabIndex = 2;
             this.btnLoadData.Text = "Load";
             this.btnLoadData.UseVisualStyleBackColor = true;
@@ -67,8 +67,8 @@ namespace _19030690_Abhinav_Parajuli
             this.weeklyChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.weeklyChart.Legends.Add(legend1);
-            this.weeklyChart.Location = new System.Drawing.Point(16, 95);
-            this.weeklyChart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.weeklyChart.Location = new System.Drawing.Point(18, 120);
+            this.weeklyChart.Margin = new System.Windows.Forms.Padding(2);
             this.weeklyChart.Name = "weeklyChart";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -80,7 +80,7 @@ namespace _19030690_Abhinav_Parajuli
             series2.Name = "Total Earning";
             this.weeklyChart.Series.Add(series1);
             this.weeklyChart.Series.Add(series2);
-            this.weeklyChart.Size = new System.Drawing.Size(677, 380);
+            this.weeklyChart.Size = new System.Drawing.Size(848, 511);
             this.weeklyChart.TabIndex = 3;
             this.weeklyChart.Text = "chart1";
             // 
@@ -88,12 +88,13 @@ namespace _19030690_Abhinav_Parajuli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MintCream;
             this.Controls.Add(this.weeklyChart);
             this.Controls.Add(this.btnLoadData);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Chart";
-            this.Size = new System.Drawing.Size(728, 566);
+            this.Size = new System.Drawing.Size(877, 709);
             ((System.ComponentModel.ISupportInitialize)(this.weeklyChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
