@@ -78,9 +78,8 @@ namespace _19030690_Abhinav_Parajuli
                             WriteCsv(file, ticketDatas);
                         }
                     }
-                    else
+                    if (!File.Exists(file))
                     {
-                        // int price = PD.GetPrice(TK.category, TK.time_duration, dayType);
                         TK.Price = 0;
                         ticketDatas.Add(TK);
                         WriteCsv(file, ticketDatas);

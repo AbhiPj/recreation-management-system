@@ -20,11 +20,14 @@ namespace _19030690_Abhinav_Parajuli
     {
 
         List<priceData> priceDatas;
+        List<priceData> newPriceData = new List<priceData>();
+
         string file = @"../../../price.csv";
         public PriceRate()
         {
             InitializeComponent();
             priceDatas = new List<priceData>();
+
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -35,6 +38,7 @@ namespace _19030690_Abhinav_Parajuli
                 if (File.Exists(file))
                 {
                     priceDatas = ReadCsv(file);
+                    newPriceData = priceDatas;
                 }
                 priceData PD = new priceData();
 
@@ -68,28 +72,34 @@ namespace _19030690_Abhinav_Parajuli
 
                 var category = priceDatas.Select(x => x.category);
                 bool Exist = false;
+                int count = 0;
                 if (category.Contains(PD.category))
                 {
                     foreach (priceData price in priceDatas)
                     {
                         if (price.category==PD.category && price.dayType == PD.dayType)
                         {
-                            MessageBox.Show("already exists");
+                            newPriceData.RemoveAt(count);
+                            newPriceData.Add(PD);
+                             WriteCsv(file, newPriceData);
+                            dataGridView1.DataSource = newPriceData;
+                            MessageBox.Show("Price replaced");
+                            txtRate1.Clear();
+                            txtRate2.Clear();
+                            txtRate3.Clear();
+                            txtRate4.Clear();
+                            txtWholeDay.Clear();
                             Exist = true;
                             break;
                         }
+                        count = count + 1;
                     }
                 }
 
-                if (Exist)
-                {
-                    MessageBox.Show("already exist if condition");
-                }
-                else
+                if (!Exist)
                 {
                     priceDatas.Add(PD);
                     WriteCsv(file, priceDatas);
-                    var parice = priceDatas.Select(x => x.category);
                     dataGridView1.DataSource = priceDatas;
                     MessageBox.Show("Price added");
                     txtRate1.Clear();
