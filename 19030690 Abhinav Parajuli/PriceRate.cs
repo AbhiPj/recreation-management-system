@@ -156,35 +156,34 @@ namespace _19030690_Abhinav_Parajuli
         {
             priceDatas = ReadCsv(file);
             int price = 0;
+            double timeDiff = double.Parse(duration);
             var RateCategory = priceDatas.Select(x => x.category);
             foreach(var rate in priceDatas)
             {
                 if (rate.category==category && rate.dayType == day)
                 {
-                    if (duration == "1Hr")
+                    if (timeDiff <= 1)
                     {
                          price = rate.rate1;
                        
 
                     }
-                    else if(duration == "2Hrs")
+                    else if(timeDiff <= 2)
                     {
                       
                         price = rate.rate2;
                     }
-                    else if(duration == "3Hrs")
+                    else if(timeDiff <= 3)
                     {
                      
                         price = rate.rate3;
                     }
-                    else if(duration == "4Hrs")
+                    else if(timeDiff <= 4)
                     {
-                        
                         price = rate.rate4;
                     }
                     else
                     {
-                  
                         price = rate.wholeDay;
                     }
                 }

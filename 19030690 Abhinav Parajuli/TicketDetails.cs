@@ -22,8 +22,9 @@ namespace _19030690_Abhinav_Parajuli
 
         public TicketDetails()
         {
-            ticketDatas = new List<TicketData>();
             InitializeComponent();
+            ticketDatas = new List<TicketData>();
+
 
         }
 
@@ -71,8 +72,9 @@ namespace _19030690_Abhinav_Parajuli
                     TK.age = int.Parse(txtAge.Text);
                     TK.Date = curDate;
                     TK.checkinTime = date.ToShortTimeString();
-                    TK.time_duration = cmbDuration.Text;
+                    TK.time_duration = null;
                     TK.checkoutTime = null;
+                    TK.price = 0;
 
                     if (File.Exists(file))
                     {
@@ -84,30 +86,18 @@ namespace _19030690_Abhinav_Parajuli
                         }
                         else
                         {
-                            int price1 = PD.GetPrice(TK.category, TK.time_duration, dayType);
-                            TK.price = price1;
-
+                            //int price1 = PD.GetPrice(TK.category, TK.time_duration, dayType);
                             ticketDatas.Add(TK);
                             WriteCsv(file, ticketDatas);
                         }
-
                     }
                     else
                     {
-                        int price = PD.GetPrice(TK.category, TK.time_duration, dayType);
-                        TK.price = price;
-
+                       // int price = PD.GetPrice(TK.category, TK.time_duration, dayType);
+                        TK.price = 0;
                         ticketDatas.Add(TK);
                         WriteCsv(file, ticketDatas);
-
                     }
-
-                   
-                   
-                    
-
-
-                    
                 }
                 else
                 {
@@ -182,8 +172,47 @@ namespace _19030690_Abhinav_Parajuli
                     if(ticket.checkoutTime == "")
                     {
                         MessageBox.Show("checked out");
+
                         DateTime date = DateTime.Now;
+                        int year = date.Date.Year;
+                        DateTime firstDay = new DateTime(year, 1, 1);
+                        CultureInfo cul = CultureInfo.CurrentCulture;
+                        int weekNo = cul.Calendar.GetWeekOfYear(date, CalendarWeekRule.FirstDay, DayOfWeek.Sunday);
+                        int days = (weekNo - 1) * 7;
+                        DateTime dt1 = firstDay.AddDays(days);
+                        DayOfWeek dow = dt1.DayOfWeek;
+                        DateTime startDateOfWeek = dt1.AddDays(-(int)dow);
+                        DateTime endDateOfWeek = startDateOfWeek.AddDays(6);
+                        string start = startDateOfWeek.ToShortDateString();
+                        string end = endDateOfWeek.ToShortDateString();
+                        string curDate = date.ToShortDateString();
+                        Console.WriteLine("Start Of Week: " + startDateOfWeek.ToShortDateString());
+                        Console.WriteLine("End of week:" + endDateOfWeek.ToShortDateString());
+
+                        DayOfWeek day = date.DayOfWeek;
+                        var todayDay = day.ToString();
+                        string dayType;
+
+                        if (todayDay == "Saturday")
+                        {
+                            dayType = "Weekend";
+                        }
+                        else
+                        {
+                            dayType = "Weekdays";
+                        }
+
                         ticket.checkoutTime = date.ToShortTimeString();
+                        TimeSpan diff = getDuration(ticket.checkinTime,ticket.checkoutTime);
+                        string timeDiff = diff.TotalHours.ToString();
+                        ticket.time_duration = diff.ToString();
+
+
+                        PriceRate PR = new PriceRate();
+
+                        int price1 = PR.GetPrice(ticket.category, timeDiff, dayType);
+                        ticket.price = price1;
+
                         newTicketList.RemoveAt(count);
                         newTicketList.Add(ticket);
                     }
@@ -196,6 +225,14 @@ namespace _19030690_Abhinav_Parajuli
                 count = count + 1;
             }
             WriteCsv(file, newTicketList);
+
+        }
+        public TimeSpan getDuration(string checkIn, string checkOut)
+        {
+            DateTime checkInTime = DateTime.Parse(checkIn);
+            DateTime checkOutTime = DateTime.Parse(checkOut);
+            TimeSpan diff = checkOutTime - checkInTime;
+            return diff;
 
         }
     }
