@@ -32,8 +32,8 @@ namespace _19030690_Abhinav_Parajuli
                 {
                     MessageBox.Show("Logged In");
                     this.Hide();
-                    Form1 form = new Form1();
-                    form.Show();
+                    EmployeeForm empForm = new EmployeeForm();
+                    empForm.Show();
                 }
                 else
                 {

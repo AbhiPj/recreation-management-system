@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace _19030690_Abhinav_Parajuli
 {
-    class DailyReport
+    public class DailyReport
     {
  
         public string Category { get; set; }

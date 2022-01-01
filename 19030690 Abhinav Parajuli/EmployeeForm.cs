@@ -10,29 +10,17 @@ using System.Windows.Forms;
 
 namespace _19030690_Abhinav_Parajuli
 {
-    public partial class Form1 : Form
+    public partial class EmployeeForm : Form
     {
-      //  PriceRate priceRate = new PriceRate();
-        //Report report = new Report();
-        public Form1()
+        public EmployeeForm()
         {
             InitializeComponent();
-            report1.BringToFront();
-        }
-
-        private void btnReport_Click(object sender, EventArgs e)
-        {
             report1.BringToFront();
         }
 
         private void btnChart_Click(object sender, EventArgs e)
         {
             chart1.BringToFront();
-        }
-
-        private void btnPriceRate_Click(object sender, EventArgs e)
-        {
-            priceRate1.BringToFront();
         }
 
         private void btnTicket_Click(object sender, EventArgs e)
@@ -45,16 +33,9 @@ namespace _19030690_Abhinav_Parajuli
             priceDetails1.BringToFront();
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
+        private void btnReport_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Home home = new Home();
-            home.Show();
-        }
-
-        private void btnRegisterEmployee_Click(object sender, EventArgs e)
-        {
-            registerEmployee1.BringToFront();
+            report1.BringToFront();
         }
     }
 }

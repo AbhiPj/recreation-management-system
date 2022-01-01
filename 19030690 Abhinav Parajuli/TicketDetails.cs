@@ -19,12 +19,10 @@ namespace _19030690_Abhinav_Parajuli
         private IEnumerable<int> userID;
         string file = @"../../../TicketDetails.csv";
         string priceCsv = @"../../../price.csv";
-
         public TicketDetails()
         {
             InitializeComponent();
         }
-
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -32,14 +30,10 @@ namespace _19030690_Abhinav_Parajuli
                 if (File.Exists(priceCsv))
                 {
                     DateTime date = DateTime.Now;
-               
                     string curDate = date.ToShortDateString();
-
-
                     DayOfWeek day = date.DayOfWeek;
                     var todayDay = day.ToString();
                     string dayType;
-                    
                     if (todayDay == "Saturday")
                     {
                          dayType = "Weekend";
@@ -48,10 +42,8 @@ namespace _19030690_Abhinav_Parajuli
                     {
                          dayType = "Weekdays";
                     }
-
                     TicketData TK = new TicketData();
                     PriceRate PD = new PriceRate();
-
                     TK.Id = int.Parse(txtID.Text);
                     TK.Category = cmbTicketCategory.Text;
                     TK.Name = txtName.Text;
@@ -62,7 +54,6 @@ namespace _19030690_Abhinav_Parajuli
                     TK.CheckoutTime = null;
                     TK.Price = 0;
                     TK.Day = todayDay;
-
                     if (File.Exists(file))
                     {
                         ticketDatas = ReadCsv(file);
@@ -76,6 +67,8 @@ namespace _19030690_Abhinav_Parajuli
                             //int price1 = PD.GetPrice(TK.category, TK.time_duration, dayType);
                             ticketDatas.Add(TK);
                             WriteCsv(file, ticketDatas);
+                            ticketGridView.DataSource = ticketDatas;
+                            MessageBox.Show("Data added");
                         }
                     }
                     if (!File.Exists(file))
@@ -83,8 +76,9 @@ namespace _19030690_Abhinav_Parajuli
                         TK.Price = 0;
                         ticketDatas.Add(TK);
                         WriteCsv(file, ticketDatas);
+                        ticketGridView.DataSource = ticketDatas;
+                        MessageBox.Show("Data added");
                     }
-                       
                 }
                 else
                 {
@@ -105,7 +99,6 @@ namespace _19030690_Abhinav_Parajuli
                 csvWriter.Dispose();
             }
         }
-
         public List<TicketData> ReadCsv(string path)
         {
             try
@@ -134,13 +127,12 @@ namespace _19030690_Abhinav_Parajuli
         {
             ticketDatas= ReadCsv(file);
             return ticketDatas;
-
         }
 
         private void btnRead_Click(object sender, EventArgs e)
         {
             ticketDatas = ReadCsv(file);
-            dataGridView1.DataSource = ticketDatas;
+            ticketGridView.DataSource = ticketDatas;
         }
 
         private void btnCheckout_Click(object sender, EventArgs e)
@@ -150,7 +142,6 @@ namespace _19030690_Abhinav_Parajuli
                 ticketDatas = ReadCsv(file);
                 List<TicketData> newTicketList;
                 newTicketList = ReadCsv(file);
-
                 TicketData TK = new TicketData();
                 var id = int.Parse(txtCheckoutID.Text);
                 var count = 0;
@@ -162,12 +153,9 @@ namespace _19030690_Abhinav_Parajuli
                         {
                             DateTime date = DateTime.Now;
                             string curDate = date.ToShortDateString();
-
-
                             DayOfWeek day = date.DayOfWeek;
                             var todayDay = day.ToString();
                             string dayType;
-
                             if (todayDay == "Saturday")
                             {
                                 dayType = "Weekend";
@@ -176,43 +164,39 @@ namespace _19030690_Abhinav_Parajuli
                             {
                                 dayType = "Weekdays";
                             }
-
                             ticket.CheckoutTime = date.ToShortTimeString();
                             TimeSpan diff = getDuration(ticket.CheckinTime, ticket.CheckoutTime);
                             string timeDiff = diff.TotalHours.ToString();
                             ticket.Time_duration = diff.ToString();
-
-
                             PriceRate PR = new PriceRate();
-
                             int price1 = PR.GetPrice(ticket.Category, timeDiff, dayType);
                             ticket.Price = price1;
-
                             newTicketList.RemoveAt(count);
                             newTicketList.Add(ticket);
-                            MessageBox.Show("checked out " +"\n Price: " + price1 + "\nDuration: " + ticket.Time_duration + "\nCheckOut Time: " + ticket.CheckoutTime);
-
+                            ticketGridView.DataSource = newTicketList;
+                            MessageBox.Show("checked out " +"\n Price: " + price1 + "\nDuration: " + ticket.Time_duration + "\nCheckOut Time: " + ticket.CheckoutTime);   
                         }
                         else
                         {
                             MessageBox.Show("Already checked out");
                         }
-
                     }
                     count = count + 1;
                 }
                 WriteCsv(file, newTicketList);
             }
-            catch
+            catch(Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
         public TimeSpan getDuration(string checkIn, string checkOut)
         {
             DateTime checkInTime = DateTime.Parse(checkIn);
             DateTime checkOutTime = DateTime.Parse(checkOut);
-            TimeSpan diff = checkOutTime - checkInTime;
+            TimeSpan diff = checkOutTime.Subtract(checkInTime);
+
+            //TimeSpan diff = checkOutTime - checkInTime;
             return diff;
 
         }

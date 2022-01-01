@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,14 @@ namespace _19030690_Abhinav_Parajuli
     public partial class Report : UserControl
     {
         List<DailyReport> dailyReports;
+        List<DailyReport> sortReport= new List<DailyReport>();
+
         List<WeeklyReport> weeklyReports;
+        List<WeeklyReport> weeklyReports2 = new List<WeeklyReport>();
+        bool sorted = false;
+        bool weeklyEarningSorted = false;
+        bool weeklyVisitorSorted = false;
+
         string file = @"../../../TicketDetails.csv";
         public Report()
         {
@@ -33,29 +41,10 @@ namespace _19030690_Abhinav_Parajuli
         {
             try
             {
-                
-                if (File.Exists(file))
-                {
-                    TicketDetails TD = new TicketDetails();
-                    List<TicketData> dailyReport;
-                    dailyReport = TD.getTicketData();
-                    var groupList = dailyReport.GroupBy(a => a.Category);
-
-                    foreach (var group in groupList)
-                    {
-                        DailyReport DR = new DailyReport();
-                        DR.Category = group.Key;
-                        DR.DailyCustomers = group.Count();
-                        dailyReports.Add(DR);
-                    }
-                    dailyReportGrid.DataSource = dailyReports;
-                }
-                else
-                {
-                    MessageBox.Show("File does not exist");
-                }
+                dailyReports = getDailyReports();
+                dailyReportGrid.DataSource = dailyReports;
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 MessageBox.Show("Error" + exc.Message);
             }
@@ -78,7 +67,9 @@ namespace _19030690_Abhinav_Parajuli
         {
             if (File.Exists(file))
             {
+
                 TicketDetails TD = new TicketDetails();
+                List<WeeklyReport> reportWeekly = new List<WeeklyReport>();
                 List<TicketData> ticketDatas;
                 ticketDatas = TD.getTicketData();
                 DateTime date = DateTime.Now;
@@ -107,19 +98,128 @@ namespace _19030690_Abhinav_Parajuli
                     WeeklyReport WR = new WeeklyReport();
                     DateTime dateDay = DateTime.Parse(group.Key);
                     Day day = (Day)dateDay.DayOfWeek;
-
                     WR.date = day.ToString();
                     WR.TotalVisitor = group.visitor;
                     WR.TotalEarning = group.Value;
-                    weeklyReports.Add(WR);
+                    reportWeekly.Add(WR);
                 }
-                return weeklyReports;
+                return reportWeekly;
             }
             else
             {
                 MessageBox.Show("File does not exist");
                 return null;
             }
+        }
+
+        public List<DailyReport> getDailyReports()
+        {
+                if (File.Exists(file))
+                {
+                List<DailyReport> reportDaily = new List<DailyReport>();
+                    TicketDetails TD = new TicketDetails();
+                    List<TicketData> ticketData;
+                    ticketData = TD.getTicketData();
+                    var groupList = ticketData.GroupBy(a => a.Category);
+                    foreach (var group in groupList)
+                    {
+                        DailyReport DR = new DailyReport();
+                        DR.Category = group.Key;
+                        DR.DailyCustomers = group.Count();
+                        reportDaily.Add(DR);
+                    }
+                    return reportDaily;
+                }
+                else
+                {
+                    MessageBox.Show("File does not exist");
+                    return null;
+                }
+        }
+
+        private void btnSortVisitor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!sorted)
+                {
+                    sortReport = dailyReports.OrderBy(o => o.DailyCustomers).ToList();
+                    sorted = true;
+                    dailyReportGrid.DataSource = sortReport;
+                }
+                else
+                {
+                    sortReport = dailyReports.OrderByDescending(o => o.DailyCustomers).ToList();
+                    sorted = false;
+                    dailyReportGrid.DataSource = sortReport;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                weeklyReports = getWeeklyReport();
+                if (!weeklyEarningSorted)
+                {
+                    weeklyReports = weeklyReports.OrderBy(o => o.TotalEarning).ToList();
+                    weeklyEarningSorted = true;
+                    weeklyReportGrid.DataSource = weeklyReports;
+                }
+                else
+                {
+                    weeklyReports = weeklyReports.OrderByDescending(o => o.TotalEarning).ToList();
+                    weeklyEarningSorted = false;
+                    weeklyReportGrid.DataSource = weeklyReports;
+                }
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Error1" + exc.Message);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                weeklyReports = getWeeklyReport();
+                if (!weeklyVisitorSorted)
+                {
+                    weeklyReports = weeklyReports.OrderBy(o => o.TotalVisitor).ToList();
+                    weeklyVisitorSorted = true;
+                    weeklyReportGrid.DataSource = weeklyReports;
+                }
+                else
+                {
+                    weeklyReports = weeklyReports.OrderByDescending(o => o.TotalVisitor).ToList();
+                    weeklyVisitorSorted = false;
+                    weeklyReportGrid.DataSource = weeklyReports;
+                }
+
+
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Error1" + exc.Message);
+            }
+          
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            dailyReportGrid.DataSource = null;
+        }
+
+        private void btnWeeklyClear_Click(object sender, EventArgs e)
+        {
+            weeklyReportGrid.DataSource = null;
+
         }
     }
 }
