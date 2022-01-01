@@ -26,31 +26,30 @@ namespace _19030690_Abhinav_Parajuli
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            if (File.Exists(file)){
-                employees = getEmployees(file);
-            }
-
-            EmployeeData employee = new EmployeeData();
-            employee.Name = txtName.Text;
-            employee.Age = int.Parse(txtAge.Text);
-            employee.Username = txtUsername.Text;
-            employee.Password = txtPassword.Text;
-            employee.Gender = cmbGender.Text;
-
-            employees.Add(employee);
-
-
-
-
-
-            using (StreamWriter writer = new StreamWriter(file, false, System.Text.Encoding.UTF8))
+            try 
             {
-                var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture);
-                csvWriter.WriteRecords(employees); // where values implements IEnumerable
-                csvWriter.Dispose();
-
+                if (File.Exists(file))
+                {
+                    employees = getEmployees(file);
+                }
+                EmployeeData employee = new EmployeeData();
+                employee.Name = txtName.Text;
+                employee.Age = int.Parse(txtAge.Text);
+                employee.Username = txtUsername.Text;
+                employee.Password = txtPassword.Text;
+                employee.Gender = cmbGender.Text;
+                employees.Add(employee);
+                using (StreamWriter writer = new StreamWriter(file, false, System.Text.Encoding.UTF8))
+                {
+                    var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture);
+                    csvWriter.WriteRecords(employees); // where values implements IEnumerable
+                    csvWriter.Dispose();
+                }
             }
-
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         public List<EmployeeData> getEmployees(string path)
         {

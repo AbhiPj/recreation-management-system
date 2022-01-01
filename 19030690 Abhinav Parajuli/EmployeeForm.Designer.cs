@@ -30,11 +30,11 @@ namespace _19030690_Abhinav_Parajuli
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnReport = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.btnPriceDetails = new System.Windows.Forms.Button();
             this.btmTicket = new System.Windows.Forms.Button();
             this.btnChart = new System.Windows.Forms.Button();
-            this.btnReport = new System.Windows.Forms.Button();
             this.chart1 = new _19030690_Abhinav_Parajuli.Chart();
             this.report1 = new _19030690_Abhinav_Parajuli.Report();
             this.ticketDetails1 = new _19030690_Abhinav_Parajuli.TicketDetails();
@@ -56,6 +56,18 @@ namespace _19030690_Abhinav_Parajuli
             this.panel1.Size = new System.Drawing.Size(307, 878);
             this.panel1.TabIndex = 1;
             // 
+            // btnReport
+            // 
+            this.btnReport.BackColor = System.Drawing.Color.White;
+            this.btnReport.Location = new System.Drawing.Point(0, 11);
+            this.btnReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnReport.Name = "btnReport";
+            this.btnReport.Size = new System.Drawing.Size(307, 55);
+            this.btnReport.TabIndex = 8;
+            this.btnReport.Text = "Report";
+            this.btnReport.UseVisualStyleBackColor = false;
+            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+            // 
             // btnLogout
             // 
             this.btnLogout.Location = new System.Drawing.Point(97, 777);
@@ -65,6 +77,7 @@ namespace _19030690_Abhinav_Parajuli
             this.btnLogout.TabIndex = 7;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnPriceDetails
             // 
@@ -101,18 +114,6 @@ namespace _19030690_Abhinav_Parajuli
             this.btnChart.Text = "Chart";
             this.btnChart.UseVisualStyleBackColor = false;
             this.btnChart.Click += new System.EventHandler(this.btnChart_Click);
-            // 
-            // btnReport
-            // 
-            this.btnReport.BackColor = System.Drawing.Color.White;
-            this.btnReport.Location = new System.Drawing.Point(0, 11);
-            this.btnReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnReport.Name = "btnReport";
-            this.btnReport.Size = new System.Drawing.Size(307, 55);
-            this.btnReport.TabIndex = 8;
-            this.btnReport.Text = "Report";
-            this.btnReport.UseVisualStyleBackColor = false;
-            this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
             // chart1
             // 

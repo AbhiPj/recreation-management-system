@@ -37,5 +37,12 @@ namespace _19030690_Abhinav_Parajuli
         {
             report1.BringToFront();
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            this.Hide();
+            //Home.Show();
+        }
     }
 }
