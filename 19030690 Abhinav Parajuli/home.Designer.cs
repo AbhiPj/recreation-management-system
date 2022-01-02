@@ -40,15 +40,16 @@ namespace _19030690_Abhinav_Parajuli
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-16, -38);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(412, 331);
             this.pictureBox1.TabIndex = 5;
@@ -56,10 +57,8 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnEmployee);
-            this.panel1.Controls.Add(this.btnAdmin);
             this.panel1.Location = new System.Drawing.Point(31, 359);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1447, 415);
             this.panel1.TabIndex = 4;
@@ -67,8 +66,8 @@ namespace _19030690_Abhinav_Parajuli
             // btnEmployee
             // 
             this.btnEmployee.BackColor = System.Drawing.Color.White;
-            this.btnEmployee.Location = new System.Drawing.Point(787, 113);
-            this.btnEmployee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEmployee.Location = new System.Drawing.Point(822, 175);
+            this.btnEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.btnEmployee.Name = "btnEmployee";
             this.btnEmployee.Size = new System.Drawing.Size(225, 177);
             this.btnEmployee.TabIndex = 1;
@@ -79,8 +78,8 @@ namespace _19030690_Abhinav_Parajuli
             // btnAdmin
             // 
             this.btnAdmin.BackColor = System.Drawing.Color.White;
-            this.btnAdmin.Location = new System.Drawing.Point(349, 113);
-            this.btnAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdmin.Location = new System.Drawing.Point(393, 175);
+            this.btnAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.Size = new System.Drawing.Size(225, 177);
             this.btnAdmin.TabIndex = 0;
@@ -95,7 +94,7 @@ namespace _19030690_Abhinav_Parajuli
             this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(177)))), ((int)(((byte)(1)))));
             this.lblTitle.Location = new System.Drawing.Point(403, 48);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(161, 55);
+            this.lblTitle.Size = new System.Drawing.Size(158, 53);
             this.lblTitle.TabIndex = 6;
             this.lblTitle.Text = "We do";
             // 
@@ -114,7 +113,7 @@ namespace _19030690_Abhinav_Parajuli
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(67)))), ((int)(((byte)(5)))));
             this.label1.Location = new System.Drawing.Point(552, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(201, 55);
+            this.label1.Size = new System.Drawing.Size(196, 53);
             this.label1.TabIndex = 8;
             this.label1.Text = "ordinary";
             // 
@@ -125,7 +124,7 @@ namespace _19030690_Abhinav_Parajuli
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(177)))), ((int)(((byte)(1)))));
             this.label2.Location = new System.Drawing.Point(744, 48);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(197, 55);
+            this.label2.Size = new System.Drawing.Size(193, 53);
             this.label2.TabIndex = 9;
             this.label2.Text = "things in";
             // 
@@ -136,7 +135,7 @@ namespace _19030690_Abhinav_Parajuli
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(67)))), ((int)(((byte)(5)))));
             this.label3.Location = new System.Drawing.Point(744, 103);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(310, 55);
+            this.label3.Size = new System.Drawing.Size(303, 53);
             this.label3.TabIndex = 10;
             this.label3.Text = "extraordinary";
             // 
@@ -147,9 +146,19 @@ namespace _19030690_Abhinav_Parajuli
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(177)))), ((int)(((byte)(1)))));
             this.label4.Location = new System.Drawing.Point(1060, 103);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 55);
+            this.label4.Size = new System.Drawing.Size(129, 53);
             this.label4.TabIndex = 11;
             this.label4.Text = "ways";
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.Honeydew;
+            this.panel3.Controls.Add(this.btnAdmin);
+            this.panel3.Controls.Add(this.btnEmployee);
+            this.panel3.Location = new System.Drawing.Point(-39, 331);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1543, 534);
+            this.panel3.TabIndex = 13;
             // 
             // Home
             // 
@@ -157,6 +166,7 @@ namespace _19030690_Abhinav_Parajuli
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(1479, 868);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -165,12 +175,12 @@ namespace _19030690_Abhinav_Parajuli
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "home";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,5 +198,6 @@ namespace _19030690_Abhinav_Parajuli
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel3;
     }
 }

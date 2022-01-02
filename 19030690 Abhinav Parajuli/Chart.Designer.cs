@@ -29,10 +29,10 @@ namespace _19030690_Abhinav_Parajuli
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLoadData = new System.Windows.Forms.Button();
             this.weeklyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -42,20 +42,20 @@ namespace _19030690_Abhinav_Parajuli
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(356, 36);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(67)))), ((int)(((byte)(5)))));
+            this.label1.Location = new System.Drawing.Point(475, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 45);
+            this.label1.Size = new System.Drawing.Size(138, 51);
             this.label1.TabIndex = 1;
             this.label1.Text = "Chart";
             // 
             // btnLoadData
             // 
-            this.btnLoadData.Location = new System.Drawing.Point(723, 648);
-            this.btnLoadData.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLoadData.Location = new System.Drawing.Point(964, 798);
+            this.btnLoadData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLoadData.Name = "btnLoadData";
-            this.btnLoadData.Size = new System.Drawing.Size(106, 32);
+            this.btnLoadData.Size = new System.Drawing.Size(141, 39);
             this.btnLoadData.TabIndex = 2;
             this.btnLoadData.Text = "Load";
             this.btnLoadData.UseVisualStyleBackColor = true;
@@ -63,38 +63,38 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // weeklyChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.weeklyChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.weeklyChart.Legends.Add(legend1);
-            this.weeklyChart.Location = new System.Drawing.Point(18, 120);
-            this.weeklyChart.Margin = new System.Windows.Forms.Padding(2);
+            chartArea2.Name = "ChartArea1";
+            this.weeklyChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.weeklyChart.Legends.Add(legend2);
+            this.weeklyChart.Location = new System.Drawing.Point(24, 148);
+            this.weeklyChart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.weeklyChart.Name = "weeklyChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Total Visitor";
-            series1.XValueMember = "10,10";
-            series1.YValueMembers = "44,11";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Total Earning";
-            this.weeklyChart.Series.Add(series1);
-            this.weeklyChart.Series.Add(series2);
-            this.weeklyChart.Size = new System.Drawing.Size(848, 511);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Total Visitor";
+            series3.XValueMember = "10,10";
+            series3.YValueMembers = "44,11";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Total Earning";
+            this.weeklyChart.Series.Add(series3);
+            this.weeklyChart.Series.Add(series4);
+            this.weeklyChart.Size = new System.Drawing.Size(1131, 629);
             this.weeklyChart.TabIndex = 3;
             this.weeklyChart.Text = "chart1";
             // 
             // Chart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.Controls.Add(this.weeklyChart);
             this.Controls.Add(this.btnLoadData);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Chart";
-            this.Size = new System.Drawing.Size(877, 709);
+            this.Size = new System.Drawing.Size(1169, 873);
             ((System.ComponentModel.ISupportInitialize)(this.weeklyChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

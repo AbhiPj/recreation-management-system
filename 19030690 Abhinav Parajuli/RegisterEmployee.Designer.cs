@@ -42,14 +42,16 @@ namespace _19030690_Abhinav_Parajuli
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.employeeGridView = new System.Windows.Forms.DataGridView();
             this.btnLoadEmployee = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.employeeGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(86, 534);
+            this.btnRegister.Location = new System.Drawing.Point(115, 657);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(75, 23);
+            this.btnRegister.Size = new System.Drawing.Size(100, 28);
             this.btnRegister.TabIndex = 0;
             this.btnRegister.Text = "Register";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -58,108 +60,132 @@ namespace _19030690_Abhinav_Parajuli
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(83, 148);
+            this.lblName.Location = new System.Drawing.Point(111, 182);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(41, 15);
+            this.lblName.Size = new System.Drawing.Size(45, 17);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Name";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(166, 148);
+            this.txtName.Location = new System.Drawing.Point(221, 182);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(172, 20);
+            this.txtName.Size = new System.Drawing.Size(228, 22);
             this.txtName.TabIndex = 2;
             // 
             // lblAge
             // 
             this.lblAge.AutoSize = true;
-            this.lblAge.Location = new System.Drawing.Point(83, 211);
+            this.lblAge.Location = new System.Drawing.Point(111, 260);
+            this.lblAge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAge.Name = "lblAge";
-            this.lblAge.Size = new System.Drawing.Size(28, 15);
+            this.lblAge.Size = new System.Drawing.Size(33, 17);
             this.lblAge.TabIndex = 3;
             this.lblAge.Text = "Age";
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(83, 275);
+            this.lblUsername.Location = new System.Drawing.Point(111, 338);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(65, 15);
+            this.lblUsername.Size = new System.Drawing.Size(73, 17);
             this.lblUsername.TabIndex = 4;
             this.lblUsername.Text = "Username";
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(83, 332);
+            this.lblPassword.Location = new System.Drawing.Point(111, 409);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(61, 15);
+            this.lblPassword.Size = new System.Drawing.Size(69, 17);
             this.lblPassword.TabIndex = 5;
             this.lblPassword.Text = "Password";
             // 
             // cmbGender
             // 
             this.cmbGender.FormattingEnabled = true;
-            this.cmbGender.Location = new System.Drawing.Point(166, 408);
+            this.cmbGender.Location = new System.Drawing.Point(221, 502);
+            this.cmbGender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(172, 21);
+            this.cmbGender.Size = new System.Drawing.Size(228, 24);
             this.cmbGender.TabIndex = 6;
             // 
             // lblGender
             // 
             this.lblGender.AutoSize = true;
-            this.lblGender.Location = new System.Drawing.Point(83, 408);
+            this.lblGender.Location = new System.Drawing.Point(111, 502);
+            this.lblGender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(48, 15);
+            this.lblGender.Size = new System.Drawing.Size(56, 17);
             this.lblGender.TabIndex = 7;
             this.lblGender.Text = "Gender";
             // 
             // txtAge
             // 
-            this.txtAge.Location = new System.Drawing.Point(166, 211);
+            this.txtAge.Location = new System.Drawing.Point(221, 260);
+            this.txtAge.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAge.Name = "txtAge";
-            this.txtAge.Size = new System.Drawing.Size(172, 20);
+            this.txtAge.Size = new System.Drawing.Size(228, 22);
             this.txtAge.TabIndex = 8;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(166, 275);
+            this.txtUsername.Location = new System.Drawing.Point(221, 338);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(172, 20);
+            this.txtUsername.Size = new System.Drawing.Size(228, 22);
             this.txtUsername.TabIndex = 9;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(166, 332);
+            this.txtPassword.Location = new System.Drawing.Point(221, 409);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(172, 20);
+            this.txtPassword.Size = new System.Drawing.Size(228, 22);
             this.txtPassword.TabIndex = 10;
             // 
             // employeeGridView
             // 
             this.employeeGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeeGridView.Location = new System.Drawing.Point(395, 106);
+            this.employeeGridView.Location = new System.Drawing.Point(527, 130);
+            this.employeeGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.employeeGridView.Name = "employeeGridView";
             this.employeeGridView.RowHeadersWidth = 51;
-            this.employeeGridView.Size = new System.Drawing.Size(482, 542);
+            this.employeeGridView.Size = new System.Drawing.Size(643, 667);
             this.employeeGridView.TabIndex = 11;
             // 
             // btnLoadEmployee
             // 
-            this.btnLoadEmployee.Location = new System.Drawing.Point(220, 534);
+            this.btnLoadEmployee.Location = new System.Drawing.Point(293, 657);
+            this.btnLoadEmployee.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLoadEmployee.Name = "btnLoadEmployee";
-            this.btnLoadEmployee.Size = new System.Drawing.Size(75, 23);
+            this.btnLoadEmployee.Size = new System.Drawing.Size(100, 28);
             this.btnLoadEmployee.TabIndex = 12;
             this.btnLoadEmployee.Text = "Load";
             this.btnLoadEmployee.UseVisualStyleBackColor = true;
             this.btnLoadEmployee.Click += new System.EventHandler(this.btnLoadEmployee_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(67)))), ((int)(((byte)(5)))));
+            this.label1.Location = new System.Drawing.Point(345, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(416, 51);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Register Employee";
+            // 
             // RegisterEmployee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnLoadEmployee);
             this.Controls.Add(this.employeeGridView);
             this.Controls.Add(this.txtPassword);
@@ -173,8 +199,9 @@ namespace _19030690_Abhinav_Parajuli
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnRegister);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "RegisterEmployee";
-            this.Size = new System.Drawing.Size(877, 709);
+            this.Size = new System.Drawing.Size(1169, 873);
             ((System.ComponentModel.ISupportInitialize)(this.employeeGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -196,5 +223,6 @@ namespace _19030690_Abhinav_Parajuli
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.DataGridView employeeGridView;
         private System.Windows.Forms.Button btnLoadEmployee;
+        private System.Windows.Forms.Label label1;
     }
 }

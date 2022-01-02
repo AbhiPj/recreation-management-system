@@ -42,7 +42,7 @@ namespace _19030690_Abhinav_Parajuli
         {
             Home home = new Home();
             this.Hide();
-            //Home.Show();
+            home.Show();
         }
     }
 }

@@ -120,7 +120,11 @@ namespace _19030690_Abhinav_Parajuli
                     TicketDetails TD = new TicketDetails();
                     List<TicketData> ticketData;
                     ticketData = TD.getTicketData();
-                    var groupList = ticketData.GroupBy(a => a.Category);
+                    DateTime datee = DateTime.Parse(dateDailyReport.Text);
+                    var dateee = datee.ToShortDateString();
+                    var groupList = ticketData.Where(a => a.Date == dateee.ToString()).GroupBy(b => b.Category);
+
+                    //var groupList = ticketData.GroupBy(a => a.Category);
                     foreach (var group in groupList)
                     {
                         DailyReport DR = new DailyReport();

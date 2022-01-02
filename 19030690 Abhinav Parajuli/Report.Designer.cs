@@ -31,17 +31,18 @@ namespace _19030690_Abhinav_Parajuli
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.DailyReport = new System.Windows.Forms.TabPage();
+            this.dateDailyReport = new System.Windows.Forms.DateTimePicker();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSortVisitor = new System.Windows.Forms.Button();
             this.btnDailyReport = new System.Windows.Forms.Button();
             this.dailyReportGrid = new System.Windows.Forms.DataGridView();
             this.WeeklyReport = new System.Windows.Forms.TabPage();
+            this.btnWeeklyClear = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnWeeklyReport = new System.Windows.Forms.Button();
             this.weeklyReportGrid = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnWeeklyClear = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.DailyReport.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dailyReportGrid)).BeginInit();
@@ -63,6 +64,7 @@ namespace _19030690_Abhinav_Parajuli
             // DailyReport
             // 
             this.DailyReport.BackColor = System.Drawing.Color.MintCream;
+            this.DailyReport.Controls.Add(this.dateDailyReport);
             this.DailyReport.Controls.Add(this.btnClear);
             this.DailyReport.Controls.Add(this.btnSortVisitor);
             this.DailyReport.Controls.Add(this.btnDailyReport);
@@ -74,6 +76,13 @@ namespace _19030690_Abhinav_Parajuli
             this.DailyReport.Size = new System.Drawing.Size(1156, 798);
             this.DailyReport.TabIndex = 0;
             this.DailyReport.Text = "Daily Report";
+            // 
+            // dateDailyReport
+            // 
+            this.dateDailyReport.Location = new System.Drawing.Point(886, 650);
+            this.dateDailyReport.Name = "dateDailyReport";
+            this.dateDailyReport.Size = new System.Drawing.Size(244, 22);
+            this.dateDailyReport.TabIndex = 5;
             // 
             // btnClear
             // 
@@ -136,6 +145,17 @@ namespace _19030690_Abhinav_Parajuli
             this.WeeklyReport.TabIndex = 1;
             this.WeeklyReport.Text = "Weekly Report";
             // 
+            // btnWeeklyClear
+            // 
+            this.btnWeeklyClear.Location = new System.Drawing.Point(671, 693);
+            this.btnWeeklyClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnWeeklyClear.Name = "btnWeeklyClear";
+            this.btnWeeklyClear.Size = new System.Drawing.Size(217, 47);
+            this.btnWeeklyClear.TabIndex = 6;
+            this.btnWeeklyClear.Text = "Clear";
+            this.btnWeeklyClear.UseVisualStyleBackColor = true;
+            this.btnWeeklyClear.Click += new System.EventHandler(this.btnWeeklyClear_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(264, 693);
@@ -184,24 +204,14 @@ namespace _19030690_Abhinav_Parajuli
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(67)))), ((int)(((byte)(5)))));
             this.label1.Location = new System.Drawing.Point(436, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 45);
+            this.label1.Size = new System.Drawing.Size(179, 51);
             this.label1.TabIndex = 1;
             this.label1.Text = "Reports";
-            // 
-            // btnWeeklyClear
-            // 
-            this.btnWeeklyClear.Location = new System.Drawing.Point(671, 693);
-            this.btnWeeklyClear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnWeeklyClear.Name = "btnWeeklyClear";
-            this.btnWeeklyClear.Size = new System.Drawing.Size(217, 47);
-            this.btnWeeklyClear.TabIndex = 6;
-            this.btnWeeklyClear.Text = "Clear";
-            this.btnWeeklyClear.UseVisualStyleBackColor = true;
-            this.btnWeeklyClear.Click += new System.EventHandler(this.btnWeeklyClear_Click);
             // 
             // Report
             // 
@@ -238,5 +248,6 @@ namespace _19030690_Abhinav_Parajuli
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnWeeklyClear;
+        private System.Windows.Forms.DateTimePicker dateDailyReport;
     }
 }
