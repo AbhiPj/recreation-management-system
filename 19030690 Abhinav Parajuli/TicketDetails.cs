@@ -17,23 +17,28 @@ namespace _19030690_Abhinav_Parajuli
     {
         List<TicketData> ticketDatas= new List<TicketData>();
         private IEnumerable<int> userID;
-        string file = @"../../../TicketDetails.csv";
-        string priceCsv = @"../../../price.csv";
+        string file = @"../../../TicketDetails.csv";    // location for ticket details CSV file
+        string priceCsv = @"../../../price.csv";        // location for price csv file
         public TicketDetails()
         {
             InitializeComponent();
         }
+
+        //Button to take the data inserted by the user and write on CSV file.
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            //Exception handling
             try
             {
+                //Checks if the price CSV file exists
                 if (File.Exists(priceCsv))
                 {
-                    DateTime date = DateTime.Now;
-                    string curDate = date.ToShortDateString();
-                    DayOfWeek day = date.DayOfWeek;
+                    DateTime date = DateTime.Now;                    //To get the current date and time
+                    string curDate = date.ToShortDateString();      //Converts the Date and time into date
+                    DayOfWeek day = date.DayOfWeek;                 //Gets the current day of week
                     var todayDay = day.ToString();
                     string dayType;
+                    //checking for day type
                     if (todayDay == "Saturday")
                     {
                          dayType = "Weekend";
@@ -42,7 +47,7 @@ namespace _19030690_Abhinav_Parajuli
                     {
                          dayType = "Weekdays";
                     }
-                    TicketData TK = new TicketData();
+                    TicketData TK = new TicketData();                //Creating object of TicketData class
                     PriceRate PD = new PriceRate();
                     TK.Id = int.Parse(txtID.Text);
                     TK.Category = cmbTicketCategory.Text;
@@ -54,6 +59,8 @@ namespace _19030690_Abhinav_Parajuli
                     TK.CheckoutTime = null;
                     TK.Price = 0;
                     TK.Day = todayDay;
+
+                    //Check if file exists and add new data to file
                     if (File.Exists(file))
                     {
                         ticketDatas = ReadCsv(file);
@@ -71,6 +78,7 @@ namespace _19030690_Abhinav_Parajuli
                             MessageBox.Show("Data added");
                         }
                     }
+                    //Adding data if file does not exist
                     if (!File.Exists(file))
                     {
                         TK.Price = 0;
@@ -87,22 +95,27 @@ namespace _19030690_Abhinav_Parajuli
             }
             catch(Exception exc)
             {
-                MessageBox.Show("Error" + exc);
+                MessageBox.Show("Error: " + exc.Message);
             }
         }
+
+        //Method for writing on CSV file
         public void WriteCsv(string path, List<TicketData> list)
         {
-            using (StreamWriter writer = new StreamWriter(@"../../../TicketDetails.csv", false, System.Text.Encoding.UTF8))
+            using (StreamWriter writer = new StreamWriter(file, false, System.Text.Encoding.UTF8))
             {
                 var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture);
-                csvWriter.WriteRecords(list); // where values implements IEnumerable
+                csvWriter.WriteRecords(list); 
                 csvWriter.Dispose();
             }
         }
+
+        //Method for Reading CSV file
         public List<TicketData> ReadCsv(string path)
         {
             try
             {
+                //Check if file exists
                 if (File.Exists(path))
                 {
                     var streamReader = new StreamReader(path);
@@ -123,78 +136,106 @@ namespace _19030690_Abhinav_Parajuli
             }
         }
 
+        //Method to get ticket data 
         public List<TicketData> getTicketData()
         {
             ticketDatas= ReadCsv(file);
             return ticketDatas;
         }
 
+        //Button for Read 
         private void btnRead_Click(object sender, EventArgs e)
         {
             ticketDatas = ReadCsv(file);
             ticketGridView.DataSource = ticketDatas;
         }
-
+        //Button for checkout
         private void btnCheckout_Click(object sender, EventArgs e)
         {
             try
             {
-                ticketDatas = ReadCsv(file);
+                ticketDatas = ReadCsv(file);        //Reading CSV and storing into List
                 List<TicketData> newTicketList;
                 newTicketList = ReadCsv(file);
                 TicketData TK = new TicketData();
                 var id = int.Parse(txtCheckoutID.Text);
                 var count = 0;
-                foreach (TicketData ticket in ticketDatas)
+                var checkId = ticketDatas.Select(a => a.Id);
+
+                //checks if the user exists
+                if (!checkId.Contains(id))
                 {
-                    if (ticket.Id == id)
+                    MessageBox.Show("This user does not exist");
+                }
+                else
+                {
+                    //Updating checkout time for the user
+                    foreach (TicketData ticket in ticketDatas)
                     {
-                        if (ticket.CheckoutTime == "")
+                        if (ticket.Id == id)
                         {
-                            DateTime date = DateTime.Now;
-                            string curDate = date.ToShortDateString();
-                            DayOfWeek day = date.DayOfWeek;
-                            var todayDay = day.ToString();
-                            string dayType;
-                            if (todayDay == "Saturday")
+                            if (ticket.CheckoutTime == "")
                             {
-                                dayType = "Weekend";
+                                DateTime date = DateTime.Now;
+                                //string curDate = date.ToShortDateString();
+                                DayOfWeek day = date.DayOfWeek;
+                                var todayDay = day.ToString();
+                                string dayType;
+                                if (todayDay == "Saturday")
+                                {
+                                    dayType = "Weekend";
+                                }
+                                else
+                                {
+                                    dayType = "Weekdays";
+                                }
+                                ticket.CheckoutTime = date.ToShortTimeString();
+
+                                //calculating duration
+                                TimeSpan diff = getDuration(ticket.CheckinTime, ticket.CheckoutTime);
+                                string timeDiff = diff.TotalHours.ToString();
+                                ticket.Time_duration = diff.ToString();
+
+                                //Calculating price 
+                                PriceRate PR = new PriceRate();         //Creating PriceRate object to call GetPrice method
+                                int price1 = PR.GetPrice(ticket.Category, timeDiff, dayType);
+                                ticket.Price = price1;
+
+                                //Replacing List with new data
+                                newTicketList.RemoveAt(count);
+                                newTicketList.Add(ticket);
+
+                                //Showing data in grid view and displaying message to user
+                                ticketGridView.DataSource = newTicketList;
+                                MessageBox.Show("checked out " + "" +
+                                    "\n Price: " + price1 + "" +
+                                    "\nDuration: " + ticket.Time_duration + "" +
+                                    "\nCheckOut Time: " + ticket.CheckoutTime);
                             }
                             else
                             {
-                                dayType = "Weekdays";
+                                MessageBox.Show("Already checked out");
                             }
-                            ticket.CheckoutTime = date.ToShortTimeString();
-                            TimeSpan diff = getDuration(ticket.CheckinTime, ticket.CheckoutTime);
-                            string timeDiff = diff.TotalHours.ToString();
-                            ticket.Time_duration = diff.ToString();
-                            PriceRate PR = new PriceRate();
-                            int price1 = PR.GetPrice(ticket.Category, timeDiff, dayType);
-                            ticket.Price = price1;
-                            newTicketList.RemoveAt(count);
-                            newTicketList.Add(ticket);
-                            ticketGridView.DataSource = newTicketList;
-                            MessageBox.Show("checked out " +"\n Price: " + price1 + "\nDuration: " + ticket.Time_duration + "\nCheckOut Time: " + ticket.CheckoutTime);   
                         }
-                        else
-                        {
-                            MessageBox.Show("Already checked out");
-                        }
+                        count = count + 1;
                     }
-                    count = count + 1;
+
                 }
-                WriteCsv(file, newTicketList);
+           
+                WriteCsv(file, newTicketList);      //Writing the new data with checkout info into CSV
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
+        //Method to substract time and get duration
         public TimeSpan getDuration(string checkIn, string checkOut)
         {
             DateTime checkInTime = DateTime.Parse(checkIn);
             DateTime checkOutTime = DateTime.Parse(checkOut);
-            TimeSpan diff = checkOutTime.Subtract(checkInTime);
+            TimeSpan diff = checkOutTime.Subtract(checkInTime);     //substracting time to get duration
 
             //TimeSpan diff = checkOutTime - checkInTime;
             return diff;

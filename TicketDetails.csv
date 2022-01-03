@@ -1,22 +1,1 @@
-﻿Name,Age,Id,Time_duration,CheckinTime,CheckoutTime,Date,Day,Category,Price
-sdf,1,1,00:01:00,11:21 PM,11:22 PM,12/31/2021,Friday,Child,64
-q,1,4521,,11:29 PM,,12/31/2021,Friday,Adult,0
-q,1,45211,,11:29 PM,,12/31/2021,Friday,Group of 5,0
-q,1,452113,,11:29 PM,,12/31/2021,Friday,Group of 5,0
-6,9,9,,11:30 PM,,12/31/2021,Friday,Group of 5,0
-6,9,99,,11:31 PM,,12/31/2021,Friday,Group of 5,0
-6,9,990,,11:31 PM,,12/31/2021,Friday,Group of 5,0
-6,9,9909,,11:31 PM,,12/31/2021,Friday,Group of 5,0
-6,9,995,,11:31 PM,,12/31/2021,Friday,Group of 10,0
-6,9,996,,11:31 PM,,12/31/2021,Friday,Group of 10,0
-6,9,997,,11:31 PM,,12/31/2021,Friday,Group of 10,0
-sdf,1,133,,11:32 PM,,12/31/2021,Friday,Group of 10,0
-wf,1,124,,11:37 PM,,12/31/2021,Friday,Group of 15,0
-sdf,1,2,-12:53:00,11:21 PM,10:28 AM,12/31/2021,Friday,Child,211
-sdf,1,3,-12:52:00,11:22 PM,10:30 AM,12/31/2021,Friday,Child,211
-fsdf,2,92,,11:07 AM,,1/1/2022,Saturday,Child,0
-q,1,45,-12:06:00,11:29 PM,11:23 AM,12/31/2021,Friday,Adult,1
-hari,3,4,,11:24 AM,,1/1/2022,Saturday,Group of 5,0
-a,3,5,,11:26 AM,,1/1/2022,Saturday,Group of 15,0
-q,1,452,-11:37:00,11:29 PM,11:52 AM,12/31/2021,Friday,Adult,1
-f,3,13,,12:30 PM,,1/2/2022,Sunday,Group of 5,0
+Name,Age,Id,Time_duration,CheckinTime,CheckoutTime,Date,Day,Category,PriceAbhinav Parajuli,20,1,0:05:00,8:38 AM,8:43 AM,1/3/2022,Monday,Adult,550Trevor Noah,24,2,0:05:00,8:39 AM,8:44 AM,1/3/2022,Monday,Group of 5,1000Shirish Thapa,16,7,0:08:00,8:41 AM,8:49 AM,1/3/2022,Monday,Group of 10,2000Eric Clapton,16,6,0:08:00,8:41 AM,8:49 AM,1/4/2022,Tuesday,Group of 10,2000John Smith,25,8,0:10:00,8:42 AM,8:52 AM,1/3/2022,Monday,Adult,550John Doe,22,9,0:11:00,8:41 AM,8:52 AM,1/3/2022,Monday,Group of 5,1000Steve Svelt,25,10,0:10:00,8:42 AM,8:52 AM,1/6/2022,Thursday,Adult,550Jerry Stilt,24,11,0:09:00,8:43 AM,8:52 AM,1/3/2022,Monday,Group of 15,5000Merry Beth,21,12,0:09:00,8:43 AM,8:52 AM,1/3/2022,Monday,Group of 15,5000Abir Thapa,21,3,0:13:00,8:39 AM,8:52 AM,1/3/2022,Monday,Adult,550Shishir Magar,14,4,0:12:00,8:40 AM,8:52 AM,1/3/2022,Monday,Child,400Shekhar Tamang,16,5,0:12:00,8:41 AM,8:53 AM,1/3/2022,Monday,Child,400Eric Clapton,16,13,0:12:00,8:41 AM,8:53 AM,1/4/2022,Tuesday,Group of 10,2000

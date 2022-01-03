@@ -23,7 +23,5 @@ namespace _19030690_Abhinav_Parajuli
         [Integer]
         public int wholeDay { get; set; }
         public string dayType { get; set; }
-
-
     }
 }

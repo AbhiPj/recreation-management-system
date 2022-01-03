@@ -29,10 +29,10 @@ namespace _19030690_Abhinav_Parajuli
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLoadData = new System.Windows.Forms.Button();
             this.weeklyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -46,13 +46,13 @@ namespace _19030690_Abhinav_Parajuli
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(67)))), ((int)(((byte)(5)))));
             this.label1.Location = new System.Drawing.Point(475, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 51);
+            this.label1.Size = new System.Drawing.Size(137, 49);
             this.label1.TabIndex = 1;
             this.label1.Text = "Chart";
             // 
             // btnLoadData
             // 
-            this.btnLoadData.Location = new System.Drawing.Point(964, 798);
+            this.btnLoadData.Location = new System.Drawing.Point(918, 760);
             this.btnLoadData.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLoadData.Name = "btnLoadData";
             this.btnLoadData.Size = new System.Drawing.Size(141, 39);
@@ -63,24 +63,24 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // weeklyChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.weeklyChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.weeklyChart.Legends.Add(legend2);
-            this.weeklyChart.Location = new System.Drawing.Point(24, 148);
+            chartArea1.Name = "ChartArea1";
+            this.weeklyChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.weeklyChart.Legends.Add(legend1);
+            this.weeklyChart.Location = new System.Drawing.Point(24, 152);
             this.weeklyChart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.weeklyChart.Name = "weeklyChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Total Visitor";
-            series3.XValueMember = "10,10";
-            series3.YValueMembers = "44,11";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Total Earning";
-            this.weeklyChart.Series.Add(series3);
-            this.weeklyChart.Series.Add(series4);
-            this.weeklyChart.Size = new System.Drawing.Size(1131, 629);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Total Visitor";
+            series1.XValueMember = "10,10";
+            series1.YValueMembers = "44,11";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Total Earning";
+            this.weeklyChart.Series.Add(series1);
+            this.weeklyChart.Series.Add(series2);
+            this.weeklyChart.Size = new System.Drawing.Size(1107, 582);
             this.weeklyChart.TabIndex = 3;
             this.weeklyChart.Text = "chart1";
             // 

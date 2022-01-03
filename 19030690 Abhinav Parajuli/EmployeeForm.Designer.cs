@@ -82,7 +82,7 @@ namespace _19030690_Abhinav_Parajuli
             // btnPriceDetails
             // 
             this.btnPriceDetails.BackColor = System.Drawing.Color.White;
-            this.btnPriceDetails.Location = new System.Drawing.Point(0, 251);
+            this.btnPriceDetails.Location = new System.Drawing.Point(-6, 188);
             this.btnPriceDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPriceDetails.Name = "btnPriceDetails";
             this.btnPriceDetails.Size = new System.Drawing.Size(307, 55);
@@ -94,7 +94,7 @@ namespace _19030690_Abhinav_Parajuli
             // btmTicket
             // 
             this.btmTicket.BackColor = System.Drawing.Color.White;
-            this.btmTicket.Location = new System.Drawing.Point(-3, 159);
+            this.btmTicket.Location = new System.Drawing.Point(-3, 129);
             this.btmTicket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btmTicket.Name = "btmTicket";
             this.btmTicket.Size = new System.Drawing.Size(304, 55);
@@ -106,7 +106,7 @@ namespace _19030690_Abhinav_Parajuli
             // btnChart
             // 
             this.btnChart.BackColor = System.Drawing.Color.White;
-            this.btnChart.Location = new System.Drawing.Point(-3, 84);
+            this.btnChart.Location = new System.Drawing.Point(-3, 70);
             this.btnChart.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnChart.Name = "btnChart";
             this.btnChart.Size = new System.Drawing.Size(307, 55);

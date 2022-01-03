@@ -60,7 +60,7 @@ namespace _19030690_Abhinav_Parajuli
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(764, 674);
+            this.dataGridView1.Size = new System.Drawing.Size(739, 648);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -109,7 +109,7 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(205, 695);
+            this.btnSubmit.Location = new System.Drawing.Point(212, 694);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(127, 37);
@@ -120,7 +120,7 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // btnRead
             // 
-            this.btnRead.Location = new System.Drawing.Point(52, 695);
+            this.btnRead.Location = new System.Drawing.Point(39, 694);
             this.btnRead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRead.Name = "btnRead";
             this.btnRead.Size = new System.Drawing.Size(127, 37);
@@ -203,7 +203,7 @@ namespace _19030690_Abhinav_Parajuli
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(67)))), ((int)(((byte)(5)))));
             this.label4.Location = new System.Drawing.Point(456, 49);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(236, 51);
+            this.label4.Size = new System.Drawing.Size(232, 49);
             this.label4.TabIndex = 20;
             this.label4.Text = "Price Rate";
             // 

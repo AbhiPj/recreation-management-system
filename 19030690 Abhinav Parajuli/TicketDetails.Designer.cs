@@ -112,7 +112,7 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(425, 276);
+            this.btnSubmit.Location = new System.Drawing.Point(466, 275);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(123, 33);
@@ -130,15 +130,15 @@ namespace _19030690_Abhinav_Parajuli
             this.ticketGridView.Name = "ticketGridView";
             this.ticketGridView.RowHeadersWidth = 51;
             this.ticketGridView.RowTemplate.Height = 24;
-            this.ticketGridView.Size = new System.Drawing.Size(1133, 430);
+            this.ticketGridView.Size = new System.Drawing.Size(1133, 389);
             this.ticketGridView.TabIndex = 12;
             // 
             // btnRead
             // 
-            this.btnRead.Location = new System.Drawing.Point(1017, 817);
+            this.btnRead.Location = new System.Drawing.Point(969, 791);
             this.btnRead.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRead.Name = "btnRead";
-            this.btnRead.Size = new System.Drawing.Size(123, 33);
+            this.btnRead.Size = new System.Drawing.Size(127, 37);
             this.btnRead.TabIndex = 13;
             this.btnRead.Text = "Read";
             this.btnRead.UseVisualStyleBackColor = true;
@@ -155,7 +155,7 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // btnCheckout
             // 
-            this.btnCheckout.Location = new System.Drawing.Point(207, 274);
+            this.btnCheckout.Location = new System.Drawing.Point(308, 274);
             this.btnCheckout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCheckout.Name = "btnCheckout";
             this.btnCheckout.Size = new System.Drawing.Size(123, 33);
@@ -183,7 +183,7 @@ namespace _19030690_Abhinav_Parajuli
             // 
             // txtCheckoutID
             // 
-            this.txtCheckoutID.Location = new System.Drawing.Point(207, 113);
+            this.txtCheckoutID.Location = new System.Drawing.Point(173, 117);
             this.txtCheckoutID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCheckoutID.Name = "txtCheckoutID";
             this.txtCheckoutID.Size = new System.Drawing.Size(157, 22);
@@ -192,7 +192,7 @@ namespace _19030690_Abhinav_Parajuli
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(120, 122);
+            this.label3.Location = new System.Drawing.Point(107, 122);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(21, 17);
             this.label3.TabIndex = 19;

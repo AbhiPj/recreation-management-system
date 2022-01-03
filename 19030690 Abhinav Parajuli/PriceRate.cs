@@ -111,7 +111,7 @@ namespace _19030690_Abhinav_Parajuli
             }
             catch(Exception exc)
             {
-                MessageBox.Show("Please insert all data" + exc.Message);
+                MessageBox.Show( exc.Message);
             }
         }
        
@@ -175,8 +175,6 @@ namespace _19030690_Abhinav_Parajuli
                     if (timeDiff <= 1)
                     {
                          price = rate.rate1;
-                       
-
                     }
                     else if(timeDiff <= 2)
                     {

@@ -38,8 +38,8 @@ namespace _19030690_Abhinav_Parajuli
             this.dailyReportGrid = new System.Windows.Forms.DataGridView();
             this.WeeklyReport = new System.Windows.Forms.TabPage();
             this.btnWeeklyClear = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnWeeklySortVisitor = new System.Windows.Forms.Button();
+            this.btnWeeklySortEarning = new System.Windows.Forms.Button();
             this.btnWeeklyReport = new System.Windows.Forms.Button();
             this.weeklyReportGrid = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -133,8 +133,8 @@ namespace _19030690_Abhinav_Parajuli
             // 
             this.WeeklyReport.BackColor = System.Drawing.Color.MintCream;
             this.WeeklyReport.Controls.Add(this.btnWeeklyClear);
-            this.WeeklyReport.Controls.Add(this.button1);
-            this.WeeklyReport.Controls.Add(this.button2);
+            this.WeeklyReport.Controls.Add(this.btnWeeklySortVisitor);
+            this.WeeklyReport.Controls.Add(this.btnWeeklySortEarning);
             this.WeeklyReport.Controls.Add(this.btnWeeklyReport);
             this.WeeklyReport.Controls.Add(this.weeklyReportGrid);
             this.WeeklyReport.Location = new System.Drawing.Point(4, 25);
@@ -156,27 +156,27 @@ namespace _19030690_Abhinav_Parajuli
             this.btnWeeklyClear.UseVisualStyleBackColor = true;
             this.btnWeeklyClear.Click += new System.EventHandler(this.btnWeeklyClear_Click);
             // 
-            // button1
+            // btnWeeklySortVisitor
             // 
-            this.button1.Location = new System.Drawing.Point(264, 693);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(217, 47);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Sort by visitors";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnWeeklySortVisitor.Location = new System.Drawing.Point(264, 693);
+            this.btnWeeklySortVisitor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnWeeklySortVisitor.Name = "btnWeeklySortVisitor";
+            this.btnWeeklySortVisitor.Size = new System.Drawing.Size(217, 47);
+            this.btnWeeklySortVisitor.TabIndex = 5;
+            this.btnWeeklySortVisitor.Text = "Sort by visitors";
+            this.btnWeeklySortVisitor.UseVisualStyleBackColor = true;
+            this.btnWeeklySortVisitor.Click += new System.EventHandler(this.btnWeeklySortVisitor_Click);
             // 
-            // button2
+            // btnWeeklySortEarning
             // 
-            this.button2.Location = new System.Drawing.Point(17, 693);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(217, 47);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Sort by earning";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnWeeklySortEarning.Location = new System.Drawing.Point(17, 693);
+            this.btnWeeklySortEarning.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnWeeklySortEarning.Name = "btnWeeklySortEarning";
+            this.btnWeeklySortEarning.Size = new System.Drawing.Size(217, 47);
+            this.btnWeeklySortEarning.TabIndex = 4;
+            this.btnWeeklySortEarning.Text = "Sort by earning";
+            this.btnWeeklySortEarning.UseVisualStyleBackColor = true;
+            this.btnWeeklySortEarning.Click += new System.EventHandler(this.btnWeeklySortEarning_Click);
             // 
             // btnWeeklyReport
             // 
@@ -209,7 +209,7 @@ namespace _19030690_Abhinav_Parajuli
             this.label1.Location = new System.Drawing.Point(436, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 51);
+            this.label1.Size = new System.Drawing.Size(177, 49);
             this.label1.TabIndex = 1;
             this.label1.Text = "Reports";
             // 
@@ -244,8 +244,8 @@ namespace _19030690_Abhinav_Parajuli
         private System.Windows.Forms.Button btnWeeklyReport;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSortVisitor;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnWeeklySortVisitor;
+        private System.Windows.Forms.Button btnWeeklySortEarning;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnWeeklyClear;
         private System.Windows.Forms.DateTimePicker dateDailyReport;

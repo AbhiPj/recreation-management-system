@@ -17,8 +17,10 @@ namespace _19030690_Abhinav_Parajuli
             InitializeComponent();
         }
 
+        // Onclick listener for admin button
         private void btnAdmin_Click_1(object sender, EventArgs e)
         {
+            //Hides the current form and then shows the admin login form
             this.Hide();
             LoginAdmin loginAdmin = new LoginAdmin();
             loginAdmin.Show();
@@ -26,6 +28,7 @@ namespace _19030690_Abhinav_Parajuli
 
         private void btnEmployee_Click_1(object sender, EventArgs e)
         {
+            //Hides the current form and then shows the employee login form
             this.Hide();
             LoginEmployee loginEmployee = new LoginEmployee();
             loginEmployee.Show();

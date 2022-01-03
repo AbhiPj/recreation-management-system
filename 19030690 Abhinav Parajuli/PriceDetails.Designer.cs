@@ -44,12 +44,12 @@ namespace _19030690_Abhinav_Parajuli
             this.priceGridView.Name = "priceGridView";
             this.priceGridView.RowHeadersWidth = 51;
             this.priceGridView.RowTemplate.Height = 24;
-            this.priceGridView.Size = new System.Drawing.Size(1129, 645);
+            this.priceGridView.Size = new System.Drawing.Size(1129, 605);
             this.priceGridView.TabIndex = 0;
             // 
             // btnReadPrice
             // 
-            this.btnReadPrice.Location = new System.Drawing.Point(973, 815);
+            this.btnReadPrice.Location = new System.Drawing.Point(993, 774);
             this.btnReadPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReadPrice.Name = "btnReadPrice";
             this.btnReadPrice.Size = new System.Drawing.Size(156, 37);
@@ -65,7 +65,7 @@ namespace _19030690_Abhinav_Parajuli
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(67)))), ((int)(((byte)(5)))));
             this.label1.Location = new System.Drawing.Point(409, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(282, 51);
+            this.label1.Size = new System.Drawing.Size(276, 49);
             this.label1.TabIndex = 2;
             this.label1.Text = "Price Details";
             // 
