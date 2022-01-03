@@ -181,19 +181,50 @@ namespace _19030690_Abhinav_Parajuli
             try
             {
                 weeklyReports = getWeeklyReport();      //Getting data
+                var dict = new Dictionary<int, WeeklyReport>();
+                //Adding List into dictionary
+                for (int a = 0; a < weeklyReports.Count; a++)
+                {
+                    string weekDay = weeklyReports[a].date;
+                    int weeklyTotalVisitor = weeklyReports[a].TotalVisitor;
+                    int weeklyTotalEarn = weeklyReports[a].TotalEarning;
+                    dict.Add(a, new WeeklyReport { date = weekDay, TotalVisitor = weeklyTotalVisitor, TotalEarning = weeklyTotalEarn });
+                }
                 //Sorting data according to earning by ascending and descending
                 if (!weeklyEarningSorted)
                 {
-                    weeklyReports = weeklyReports.OrderBy(o => o.TotalEarning).ToList();
+                      for (int i = dict.Count - 1; i > 0; i--)
+                      {
+                            for (int j = 0; j <= i - 1; j++)
+                            {
+                                if (dict[j].TotalVisitor > dict[j + 1].TotalVisitor)
+                                {
+                                    var larger = dict[j];
+                                    dict[j] = dict[j + 1];
+                                    dict[j + 1] = larger;
+                                }
+                            }
+                      }
                     weeklyEarningSorted = true;
-                    weeklyReportGrid.DataSource = weeklyReports;
                 }
                 else
                 {
-                    weeklyReports = weeklyReports.OrderByDescending(o => o.TotalEarning).ToList();
+                      for (int i = dict.Count - 1; i > 0; i--)
+                       {
+                            for (int j = 0; j <= i - 1; j++)
+                            {
+                                if (dict[j].TotalVisitor < dict[j + 1].TotalVisitor)
+                                {
+                                    var larger = dict[j];
+                                    dict[j] = dict[j + 1];
+                                    dict[j + 1] = larger;
+                                }
+                            }
+                      }
                     weeklyEarningSorted = false;
-                    weeklyReportGrid.DataSource = weeklyReports;
                 }
+                weeklyReportGrid.DataSource = dict.Values.ToList();
+
             }
             catch (Exception exc)
             {
@@ -206,20 +237,51 @@ namespace _19030690_Abhinav_Parajuli
         {
             try
             {
-                weeklyReports = getWeeklyReport();
-                if (!weeklyVisitorSorted)
+
+                weeklyReports = getWeeklyReport();      //Getting data
+                var dict = new Dictionary<int, WeeklyReport>();
+                //Adding List into dictionary
+                for (int a = 0; a < weeklyReports.Count; a++)
                 {
-                    weeklyReports = weeklyReports.OrderBy(o => o.TotalVisitor).ToList();
-                    weeklyVisitorSorted = true;
-                    weeklyReportGrid.DataSource = weeklyReports;
+                    string weekDay = weeklyReports[a].date;
+                    int weeklyTotalVisitor = weeklyReports[a].TotalVisitor;
+                    int weeklyTotalEarn = weeklyReports[a].TotalEarning;
+                    dict.Add(a, new WeeklyReport { date = weekDay, TotalVisitor = weeklyTotalVisitor, TotalEarning = weeklyTotalEarn });
+                }
+                //Sorting data according to earning by ascending and descending
+                if (!weeklyEarningSorted)
+                {
+                    for (int i = dict.Count - 1; i > 0; i--)
+                    {
+                        for (int j = 0; j <= i - 1; j++)
+                        {
+                            if (dict[j].TotalEarning > dict[j + 1].TotalEarning)
+                            {
+                                var larger = dict[j];
+                                dict[j] = dict[j + 1];
+                                dict[j + 1] = larger;
+                            }
+                        }
+                    }
+                    weeklyEarningSorted = true;
                 }
                 else
                 {
-                    weeklyReports = weeklyReports.OrderByDescending(o => o.TotalVisitor).ToList();
-                    weeklyVisitorSorted = false;
-                    weeklyReportGrid.DataSource = weeklyReports;
+                    for (int i = dict.Count - 1; i > 0; i--)
+                    {
+                        for (int j = 0; j <= i - 1; j++)
+                        {
+                            if (dict[j].TotalEarning < dict[j + 1].TotalEarning)
+                            {
+                                var larger = dict[j];
+                                dict[j] = dict[j + 1];
+                                dict[j + 1] = larger;
+                            }
+                        }
+                    }
+                    weeklyEarningSorted = false;
                 }
-
+                weeklyReportGrid.DataSource = dict.Values.ToList();
 
             }
             catch (Exception exc)

@@ -37,9 +37,13 @@ namespace _19030690_Abhinav_Parajuli
                     totalEarning.Add(report.TotalEarning);
                 }
                 weeklyChart.Series["Total Visitor"].Points.DataBindXY(xval, totalVisitor);
+                weeklyChart.Series[0].IsValueShownAsLabel = true;
+
                 weeklyChart.Series["Total Earning"].Points.DataBindXY(xval, totalEarning);
+                weeklyChart.Series[1].IsValueShownAsLabel = true;
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
